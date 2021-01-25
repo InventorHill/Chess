@@ -60,6 +60,9 @@ namespace Chess
             this.label11 = new System.Windows.Forms.Label();
             this.WhiteSelect2 = new System.Windows.Forms.RadioButton();
             this.BlackSelect2 = new System.Windows.Forms.RadioButton();
+            this.portTextBox = new System.Windows.Forms.TextBox();
+            this.portLabel = new System.Windows.Forms.Label();
+            this.PortForwardInfoButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -250,7 +253,7 @@ namespace Chess
             // 
             this.startButton.Location = new System.Drawing.Point(16, 182);
             this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(190, 23);
+            this.startButton.Size = new System.Drawing.Size(151, 23);
             this.startButton.TabIndex = 21;
             this.startButton.Text = "Start Server";
             this.startButton.UseVisualStyleBackColor = true;
@@ -288,7 +291,7 @@ namespace Chess
             // 
             // HostSelectButton
             // 
-            this.HostSelectButton.Location = new System.Drawing.Point(22, 131);
+            this.HostSelectButton.Location = new System.Drawing.Point(27, 136);
             this.HostSelectButton.Name = "HostSelectButton";
             this.HostSelectButton.Size = new System.Drawing.Size(140, 23);
             this.HostSelectButton.TabIndex = 25;
@@ -298,7 +301,7 @@ namespace Chess
             // 
             // ClientSelectButton
             // 
-            this.ClientSelectButton.Location = new System.Drawing.Point(213, 131);
+            this.ClientSelectButton.Location = new System.Drawing.Point(210, 136);
             this.ClientSelectButton.Name = "ClientSelectButton";
             this.ClientSelectButton.Size = new System.Drawing.Size(140, 23);
             this.ClientSelectButton.TabIndex = 26;
@@ -338,6 +341,32 @@ namespace Chess
             this.BlackSelect2.Text = "Black";
             this.BlackSelect2.UseVisualStyleBackColor = true;
             // 
+            // portTextBox
+            // 
+            this.portTextBox.Location = new System.Drawing.Point(110, 30);
+            this.portTextBox.Name = "portTextBox";
+            this.portTextBox.Size = new System.Drawing.Size(47, 20);
+            this.portTextBox.TabIndex = 30;
+            // 
+            // portLabel
+            // 
+            this.portLabel.AutoSize = true;
+            this.portLabel.Location = new System.Drawing.Point(107, 9);
+            this.portLabel.Name = "portLabel";
+            this.portLabel.Size = new System.Drawing.Size(29, 13);
+            this.portLabel.TabIndex = 31;
+            this.portLabel.Text = "Port:";
+            // 
+            // PortForwardInfoButton
+            // 
+            this.PortForwardInfoButton.Location = new System.Drawing.Point(210, 165);
+            this.PortForwardInfoButton.Name = "PortForwardInfoButton";
+            this.PortForwardInfoButton.Size = new System.Drawing.Size(140, 40);
+            this.PortForwardInfoButton.TabIndex = 32;
+            this.PortForwardInfoButton.Text = "Port Forwarding Information";
+            this.PortForwardInfoButton.UseVisualStyleBackColor = true;
+            this.PortForwardInfoButton.Click += new System.EventHandler(this.PortForwardInfoButton_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -345,10 +374,13 @@ namespace Chess
             this.BackgroundImage = global::Chess.Properties.Resources.wood_grain_effect_clipart;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(375, 283);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.ClientSelectButton);
             this.Controls.Add(this.HostSelectButton);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.PortForwardInfoButton);
+            this.Controls.Add(this.portLabel);
+            this.Controls.Add(this.portTextBox);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.WhiteSelect2);
             this.Controls.Add(this.BlackSelect2);
@@ -378,7 +410,6 @@ namespace Chess
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login";
             this.Text = "Chess - Login";
-            this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -417,5 +448,8 @@ namespace Chess
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.RadioButton WhiteSelect2;
         private System.Windows.Forms.RadioButton BlackSelect2;
+        private System.Windows.Forms.TextBox portTextBox;
+        private System.Windows.Forms.Label portLabel;
+        private System.Windows.Forms.Button PortForwardInfoButton;
     }
 }
