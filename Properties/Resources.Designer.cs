@@ -61,38 +61,35 @@ namespace Chess.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1Pa:1:B1:21:0
-        ///2Pa:1:B2:22:0
-        ///3Pa:1:B3:23:0
-        ///4Pa:1:B4:24:0
-        ///5Pa:1:B5:25:0
-        ///6Pa:1:B6:26:0
-        ///7Pa:1:B7:27:0
-        ///8Pa:1:B8:28:0
-        ///1Ro:A:A1:11:0
-        ///1Kn:A:A2:12:0
-        ///1Bi:A:A3:13:0
-        ///Kin:A:A4:14:0
-        ///Que:A:A5:15:0
-        ///2Bi:A:A6:16:0
-        ///2Kn:A:A7:17:0
-        ///2Ro:A:A8:18:0
-        ///1Pa:1:G1:71:0
-        ///2Pa:1:G2:72:0
-        ///3Pa:1:G3:73:0
-        ///4Pa:1:G4:74:0
-        ///5Pa:1:G5:75:0
-        ///6Pa:1:G6:76:0
-        ///7Pa:1:G7:77:0
-        ///8Pa:1:G8:78:0
-        ///1Ro:A:H1:81:0
-        ///1Kn:A:H2:82:0
-        ///1Bi:A:H3:83:0
-        ///Kin:A:H4:85:0
-        ///Que:A:H5:84:0
-        ///2Bi:A:H6:86:0
-        ///2Kn:A:H7:87:0
-        ///2Ro:A:H8:88:0.
+        ///   Looks up a localized string similar to 1Pa:1:B1:21:0:B1
+        ///2Pa:1:B2:22:0:B2
+        ///3Pa:1:B3:23:0:B3
+        ///4Pa:1:B4:24:0:B4
+        ///5Pa:1:B5:25:0:B5
+        ///6Pa:1:B6:26:0:B6
+        ///7Pa:1:B7:27:0:B7
+        ///8Pa:1:B8:28:0:B8
+        ///1Ro:A:A1:11:0:A1
+        ///1Kn:A:A2:12:0:A2
+        ///1Bi:A:A3:13:0:A3
+        ///Kin:A:A4:14:0:A4
+        ///Que:A:A5:15:0:A5
+        ///2Bi:A:A6:16:0:A6
+        ///2Kn:A:A7:17:0:A7
+        ///2Ro:A:A8:18:0:A8
+        ///1Pa:1:G1:71:0:G1
+        ///2Pa:1:G2:72:0:G2
+        ///3Pa:1:G3:73:0:G3
+        ///4Pa:1:G4:74:0:G4
+        ///5Pa:1:G5:75:0:G5
+        ///6Pa:1:G6:76:0:G6
+        ///7Pa:1:G7:77:0:G7
+        ///8Pa:1:G8:78:0:G8
+        ///1Ro:A:H1:81:0:H1
+        ///1Kn:A:H2:82:0:H2
+        ///1Bi:A:H3:83:0:H3
+        ///Kin:A:H4:84:0:H4
+        ///Que:A:H5 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Black_Origin {
             get {
@@ -113,6 +110,16 @@ namespace Chess.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap chess_bishop_black_large {
+            get {
+                object obj = ResourceManager.GetObject("chess_bishop_black_large", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap chess_bishop_black_small {
             get {
                 object obj = ResourceManager.GetObject("chess_bishop_black_small", resourceCulture);
@@ -123,9 +130,38 @@ namespace Chess.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap chess_bishop_white_large {
+            get {
+                object obj = ResourceManager.GetObject("chess_bishop_white_large", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap chess_bishop_white_small {
             get {
                 object obj = ResourceManager.GetObject("chess_bishop_white_small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Chess_Draw_Sound {
+            get {
+                return ResourceManager.GetStream("Chess_Draw_Sound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap chess_king_black_large {
+            get {
+                object obj = ResourceManager.GetObject("chess_king_black_large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +179,29 @@ namespace Chess.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap chess_king_white_large {
+            get {
+                object obj = ResourceManager.GetObject("chess_king_white_large", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap chess_king_white_small {
             get {
                 object obj = ResourceManager.GetObject("chess_king_white_small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap chess_knight_black_large {
+            get {
+                object obj = ResourceManager.GetObject("chess_knight_black_large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,9 +219,38 @@ namespace Chess.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap chess_knight_white_large {
+            get {
+                object obj = ResourceManager.GetObject("chess_knight_white_large", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap chess_knight_white_small {
             get {
                 object obj = ResourceManager.GetObject("chess_knight_white_small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Chess_Lose_Sound {
+            get {
+                return ResourceManager.GetStream("Chess_Lose_Sound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap chess_pawn_black_large {
+            get {
+                object obj = ResourceManager.GetObject("chess_pawn_black_large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,9 +268,38 @@ namespace Chess.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap chess_pawn_white_large {
+            get {
+                object obj = ResourceManager.GetObject("chess_pawn_white_large", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap chess_pawn_white_small {
             get {
                 object obj = ResourceManager.GetObject("chess_pawn_white_small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Chess_Piece_Move {
+            get {
+                return ResourceManager.GetStream("Chess_Piece_Move", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap chess_queen_black_large {
+            get {
+                object obj = ResourceManager.GetObject("chess_queen_black_large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -203,9 +317,29 @@ namespace Chess.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap chess_queen_white_large {
+            get {
+                object obj = ResourceManager.GetObject("chess_queen_white_large", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap chess_queen_white_small {
             get {
                 object obj = ResourceManager.GetObject("chess_queen_white_small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap chess_rook_black_large {
+            get {
+                object obj = ResourceManager.GetObject("chess_rook_black_large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,10 +357,29 @@ namespace Chess.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap chess_rook_white_large {
+            get {
+                object obj = ResourceManager.GetObject("chess_rook_white_large", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap chess_rook_white_small {
             get {
                 object obj = ResourceManager.GetObject("chess_rook_white_small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Chess_Win_Sound {
+            get {
+                return ResourceManager.GetStream("Chess_Win_Sound", resourceCulture);
             }
         }
         
@@ -266,38 +419,35 @@ namespace Chess.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1Pa:1:B1:21:0
-        ///2Pa:1:B2:22:0
-        ///3Pa:1:B3:23:0
-        ///4Pa:1:B4:24:0
-        ///5Pa:1:B5:25:0
-        ///6Pa:1:B6:26:0
-        ///7Pa:1:B7:27:0
-        ///8Pa:1:B8:28:0
-        ///1Ro:A:A1:11:0
-        ///1Kn:A:A2:12:0
-        ///1Bi:A:A3:13:0
-        ///Que:A:A4:14:0
-        ///Kin:A:A5:15:0
-        ///2Bi:A:A6:16:0
-        ///2Kn:A:A7:17:0
-        ///2Ro:A:A8:18:0
-        ///1Pa:1:G1:71:0
-        ///2Pa:1:G2:72:0
-        ///3Pa:1:G3:73:0
-        ///4Pa:1:G4:74:0
-        ///5Pa:1:G5:75:0
-        ///6Pa:1:G6:76:0
-        ///7Pa:1:G7:77:0
-        ///8Pa:A:G8:78:0
-        ///1Ro:A:H1:81:0
-        ///1Kn:A:H2:82:0
-        ///1Bi:A:H3:83:0
-        ///Que:A:H4:85:0
-        ///Kin:A:H5:84:0
-        ///2Bi:A:H6:86:0
-        ///2Kn:A:H7:87:0
-        ///2Ro:A:H8:88:0.
+        ///   Looks up a localized string similar to 1Pa:1:B1:21:0:B1
+        ///2Pa:1:B2:22:0:B2
+        ///3Pa:1:B3:23:0:B3
+        ///4Pa:1:B4:24:0:B4
+        ///5Pa:1:B5:25:0:B5
+        ///6Pa:1:B6:26:0:B6
+        ///7Pa:1:B7:27:0:B7
+        ///8Pa:1:B8:28:0:B8
+        ///1Ro:A:A1:11:0:A1
+        ///1Kn:A:A2:12:0:A2
+        ///1Bi:A:A3:13:0:A3
+        ///Que:A:A4:14:0:A4
+        ///Kin:A:A5:15:0:A5
+        ///2Bi:A:A6:16:0:A6
+        ///2Kn:A:A7:17:0:A7
+        ///2Ro:A:A8:18:0:A8
+        ///1Pa:1:G1:71:0:G1
+        ///2Pa:1:G2:72:0:G2
+        ///3Pa:1:G3:73:0:G3
+        ///4Pa:1:G4:74:0:G4
+        ///5Pa:1:G5:75:0:G5
+        ///6Pa:1:G6:76:0:G6
+        ///7Pa:1:G7:77:0:G7
+        ///8Pa:A:G8:78:0:G8
+        ///1Ro:A:H1:81:0:H1
+        ///1Kn:A:H2:82:0:H2
+        ///1Bi:A:H3:83:0:H3
+        ///Que:A:H4:84:0:H4
+        ///Kin:A:H5 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string White_Origin {
             get {

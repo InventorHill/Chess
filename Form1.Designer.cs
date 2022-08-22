@@ -94,56 +94,64 @@ namespace Chess
             this.C5 = new System.Windows.Forms.Button();
             this.D6 = new System.Windows.Forms.Button();
             this.D5 = new System.Windows.Forms.Button();
-            this.WP8 = new System.Windows.Forms.Button();
-            this.WP7 = new System.Windows.Forms.Button();
-            this.WRR = new System.Windows.Forms.Button();
-            this.WKR = new System.Windows.Forms.Button();
-            this.WP6 = new System.Windows.Forms.Button();
-            this.WP5 = new System.Windows.Forms.Button();
-            this.WBR = new System.Windows.Forms.Button();
-            this.WP4 = new System.Windows.Forms.Button();
-            this.WP3 = new System.Windows.Forms.Button();
-            this.WQ = new System.Windows.Forms.Button();
-            this.WBL = new System.Windows.Forms.Button();
-            this.WP2 = new System.Windows.Forms.Button();
-            this.WP1 = new System.Windows.Forms.Button();
-            this.WKL = new System.Windows.Forms.Button();
-            this.WRL = new System.Windows.Forms.Button();
             this.disconnect_button = new System.Windows.Forms.Button();
             this.chat_button = new System.Windows.Forms.Button();
             this.transitionBox = new System.Windows.Forms.PictureBox();
             this.cancel_button = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.BP8 = new System.Windows.Forms.Button();
-            this.BRL = new System.Windows.Forms.Button();
-            this.BKL = new System.Windows.Forms.Button();
-            this.BP1 = new System.Windows.Forms.Button();
-            this.BP2 = new System.Windows.Forms.Button();
-            this.BBL = new System.Windows.Forms.Button();
-            this.BK = new System.Windows.Forms.Button();
-            this.BP3 = new System.Windows.Forms.Button();
-            this.BP4 = new System.Windows.Forms.Button();
-            this.BQ = new System.Windows.Forms.Button();
-            this.BBR = new System.Windows.Forms.Button();
-            this.BP5 = new System.Windows.Forms.Button();
-            this.BP6 = new System.Windows.Forms.Button();
-            this.BKR = new System.Windows.Forms.Button();
-            this.BRR = new System.Windows.Forms.Button();
-            this.BP7 = new System.Windows.Forms.Button();
             this.transitionBoxNull = new System.Windows.Forms.PictureBox();
-            this.WK = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.concedeButton = new System.Windows.Forms.Button();
+            this.oppPawnBox = new System.Windows.Forms.PictureBox();
+            this.oppKnightBox = new System.Windows.Forms.PictureBox();
+            this.oppBishopBox = new System.Windows.Forms.PictureBox();
+            this.oppRookBox = new System.Windows.Forms.PictureBox();
+            this.oppQueenBox = new System.Windows.Forms.PictureBox();
+            this.oppQueenLabel = new System.Windows.Forms.Label();
+            this.oppBishopLabel = new System.Windows.Forms.Label();
+            this.oppRookLabel = new System.Windows.Forms.Label();
+            this.oppKnightLabel = new System.Windows.Forms.Label();
+            this.oppPawnLabel = new System.Windows.Forms.Label();
+            this.knightSelectButton = new System.Windows.Forms.Button();
+            this.rookSelectButton = new System.Windows.Forms.Button();
+            this.bishopSelectButton = new System.Windows.Forms.Button();
+            this.queenSelectButton = new System.Windows.Forms.Button();
+            this.queenLabel = new System.Windows.Forms.Label();
+            this.bishopLabel = new System.Windows.Forms.Label();
+            this.rookLabel = new System.Windows.Forms.Label();
+            this.knightLabel = new System.Windows.Forms.Label();
+            this.pawnLabel = new System.Windows.Forms.Label();
+            this.queenBox = new System.Windows.Forms.PictureBox();
+            this.bishopBox = new System.Windows.Forms.PictureBox();
+            this.rookBox = new System.Windows.Forms.PictureBox();
+            this.knightBox = new System.Windows.Forms.PictureBox();
+            this.pawnBox = new System.Windows.Forms.PictureBox();
+            this.saveGameButton = new System.Windows.Forms.Button();
+            this.loadGameButton = new System.Windows.Forms.Button();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.replayGameButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.transitionBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.transitionBoxNull)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oppPawnBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oppKnightBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oppBishopBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oppRookBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oppQueenBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.queenBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bishopBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rookBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.knightBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pawnBox)).BeginInit();
             this.SuspendLayout();
             // 
             // H1
             // 
             this.H1.BackColor = System.Drawing.Color.White;
             this.H1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.H1.Location = new System.Drawing.Point(53, 185);
+            this.H1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.H1.Location = new System.Drawing.Point(53, 165);
             this.H1.Name = "H1";
             this.H1.Size = new System.Drawing.Size(33, 33);
             this.H1.TabIndex = 99;
@@ -154,7 +162,8 @@ namespace Chess
             // 
             this.H2.BackColor = System.Drawing.Color.White;
             this.H2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.H2.Location = new System.Drawing.Point(108, 185);
+            this.H2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.H2.Location = new System.Drawing.Point(108, 165);
             this.H2.Name = "H2";
             this.H2.Size = new System.Drawing.Size(33, 33);
             this.H2.TabIndex = 1;
@@ -165,7 +174,8 @@ namespace Chess
             // 
             this.G2.BackColor = System.Drawing.Color.White;
             this.G2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.G2.Location = new System.Drawing.Point(108, 239);
+            this.G2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.G2.Location = new System.Drawing.Point(108, 219);
             this.G2.Name = "G2";
             this.G2.Size = new System.Drawing.Size(33, 33);
             this.G2.TabIndex = 3;
@@ -176,7 +186,8 @@ namespace Chess
             // 
             this.G1.BackColor = System.Drawing.Color.White;
             this.G1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.G1.Location = new System.Drawing.Point(53, 239);
+            this.G1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.G1.Location = new System.Drawing.Point(53, 219);
             this.G1.Name = "G1";
             this.G1.Size = new System.Drawing.Size(33, 33);
             this.G1.TabIndex = 2;
@@ -187,7 +198,8 @@ namespace Chess
             // 
             this.G4.BackColor = System.Drawing.Color.White;
             this.G4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.G4.Location = new System.Drawing.Point(215, 239);
+            this.G4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.G4.Location = new System.Drawing.Point(215, 219);
             this.G4.Name = "G4";
             this.G4.Size = new System.Drawing.Size(33, 33);
             this.G4.TabIndex = 7;
@@ -199,7 +211,8 @@ namespace Chess
             // 
             this.G3.BackColor = System.Drawing.Color.White;
             this.G3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.G3.Location = new System.Drawing.Point(161, 239);
+            this.G3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.G3.Location = new System.Drawing.Point(161, 219);
             this.G3.Name = "G3";
             this.G3.Size = new System.Drawing.Size(33, 33);
             this.G3.TabIndex = 6;
@@ -210,7 +223,8 @@ namespace Chess
             // 
             this.H4.BackColor = System.Drawing.Color.White;
             this.H4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.H4.Location = new System.Drawing.Point(215, 185);
+            this.H4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.H4.Location = new System.Drawing.Point(215, 165);
             this.H4.Name = "H4";
             this.H4.Size = new System.Drawing.Size(33, 33);
             this.H4.TabIndex = 5;
@@ -221,7 +235,8 @@ namespace Chess
             // 
             this.H3.BackColor = System.Drawing.Color.White;
             this.H3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.H3.Location = new System.Drawing.Point(161, 185);
+            this.H3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.H3.Location = new System.Drawing.Point(161, 165);
             this.H3.Name = "H3";
             this.H3.Size = new System.Drawing.Size(33, 33);
             this.H3.TabIndex = 4;
@@ -232,7 +247,8 @@ namespace Chess
             // 
             this.E4.BackColor = System.Drawing.Color.White;
             this.E4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.E4.Location = new System.Drawing.Point(215, 347);
+            this.E4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.E4.Location = new System.Drawing.Point(215, 327);
             this.E4.Name = "E4";
             this.E4.Size = new System.Drawing.Size(33, 33);
             this.E4.TabIndex = 15;
@@ -244,7 +260,8 @@ namespace Chess
             // 
             this.E3.BackColor = System.Drawing.Color.White;
             this.E3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.E3.Location = new System.Drawing.Point(161, 347);
+            this.E3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.E3.Location = new System.Drawing.Point(161, 327);
             this.E3.Name = "E3";
             this.E3.Size = new System.Drawing.Size(33, 33);
             this.E3.TabIndex = 14;
@@ -256,7 +273,8 @@ namespace Chess
             // 
             this.F4.BackColor = System.Drawing.Color.White;
             this.F4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.F4.Location = new System.Drawing.Point(215, 293);
+            this.F4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.F4.Location = new System.Drawing.Point(215, 273);
             this.F4.Name = "F4";
             this.F4.Size = new System.Drawing.Size(33, 33);
             this.F4.TabIndex = 13;
@@ -268,7 +286,8 @@ namespace Chess
             // 
             this.F3.BackColor = System.Drawing.Color.White;
             this.F3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.F3.Location = new System.Drawing.Point(161, 293);
+            this.F3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.F3.Location = new System.Drawing.Point(161, 273);
             this.F3.Name = "F3";
             this.F3.Size = new System.Drawing.Size(33, 33);
             this.F3.TabIndex = 12;
@@ -280,7 +299,8 @@ namespace Chess
             // 
             this.E2.BackColor = System.Drawing.Color.White;
             this.E2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.E2.Location = new System.Drawing.Point(108, 347);
+            this.E2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.E2.Location = new System.Drawing.Point(108, 327);
             this.E2.Name = "E2";
             this.E2.Size = new System.Drawing.Size(33, 33);
             this.E2.TabIndex = 11;
@@ -292,7 +312,8 @@ namespace Chess
             // 
             this.E1.BackColor = System.Drawing.Color.White;
             this.E1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.E1.Location = new System.Drawing.Point(53, 347);
+            this.E1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.E1.Location = new System.Drawing.Point(53, 327);
             this.E1.Name = "E1";
             this.E1.Size = new System.Drawing.Size(33, 33);
             this.E1.TabIndex = 10;
@@ -304,7 +325,8 @@ namespace Chess
             // 
             this.F2.BackColor = System.Drawing.Color.White;
             this.F2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.F2.Location = new System.Drawing.Point(108, 293);
+            this.F2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.F2.Location = new System.Drawing.Point(108, 273);
             this.F2.Name = "F2";
             this.F2.Size = new System.Drawing.Size(33, 33);
             this.F2.TabIndex = 9;
@@ -316,7 +338,8 @@ namespace Chess
             // 
             this.F1.BackColor = System.Drawing.Color.White;
             this.F1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.F1.Location = new System.Drawing.Point(53, 293);
+            this.F1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.F1.Location = new System.Drawing.Point(53, 273);
             this.F1.Name = "F1";
             this.F1.Size = new System.Drawing.Size(33, 33);
             this.F1.TabIndex = 8;
@@ -328,7 +351,8 @@ namespace Chess
             // 
             this.E8.BackColor = System.Drawing.Color.White;
             this.E8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.E8.Location = new System.Drawing.Point(431, 347);
+            this.E8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.E8.Location = new System.Drawing.Point(431, 327);
             this.E8.Name = "E8";
             this.E8.Size = new System.Drawing.Size(33, 33);
             this.E8.TabIndex = 31;
@@ -340,7 +364,8 @@ namespace Chess
             // 
             this.E7.BackColor = System.Drawing.Color.White;
             this.E7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.E7.Location = new System.Drawing.Point(376, 347);
+            this.E7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.E7.Location = new System.Drawing.Point(376, 327);
             this.E7.Name = "E7";
             this.E7.Size = new System.Drawing.Size(33, 33);
             this.E7.TabIndex = 30;
@@ -352,7 +377,8 @@ namespace Chess
             // 
             this.F8.BackColor = System.Drawing.Color.White;
             this.F8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.F8.Location = new System.Drawing.Point(431, 293);
+            this.F8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.F8.Location = new System.Drawing.Point(431, 273);
             this.F8.Name = "F8";
             this.F8.Size = new System.Drawing.Size(33, 33);
             this.F8.TabIndex = 29;
@@ -364,7 +390,8 @@ namespace Chess
             // 
             this.F7.BackColor = System.Drawing.Color.White;
             this.F7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.F7.Location = new System.Drawing.Point(376, 293);
+            this.F7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.F7.Location = new System.Drawing.Point(376, 273);
             this.F7.Name = "F7";
             this.F7.Size = new System.Drawing.Size(33, 33);
             this.F7.TabIndex = 28;
@@ -376,7 +403,8 @@ namespace Chess
             // 
             this.E6.BackColor = System.Drawing.Color.White;
             this.E6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.E6.Location = new System.Drawing.Point(322, 347);
+            this.E6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.E6.Location = new System.Drawing.Point(322, 327);
             this.E6.Name = "E6";
             this.E6.Size = new System.Drawing.Size(33, 33);
             this.E6.TabIndex = 27;
@@ -388,7 +416,8 @@ namespace Chess
             // 
             this.E5.BackColor = System.Drawing.Color.White;
             this.E5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.E5.Location = new System.Drawing.Point(268, 347);
+            this.E5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.E5.Location = new System.Drawing.Point(268, 327);
             this.E5.Name = "E5";
             this.E5.Size = new System.Drawing.Size(33, 33);
             this.E5.TabIndex = 26;
@@ -400,7 +429,8 @@ namespace Chess
             // 
             this.F6.BackColor = System.Drawing.Color.White;
             this.F6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.F6.Location = new System.Drawing.Point(322, 293);
+            this.F6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.F6.Location = new System.Drawing.Point(322, 273);
             this.F6.Name = "F6";
             this.F6.Size = new System.Drawing.Size(33, 33);
             this.F6.TabIndex = 25;
@@ -412,7 +442,8 @@ namespace Chess
             // 
             this.F5.BackColor = System.Drawing.Color.White;
             this.F5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.F5.Location = new System.Drawing.Point(268, 293);
+            this.F5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.F5.Location = new System.Drawing.Point(268, 273);
             this.F5.Name = "F5";
             this.F5.Size = new System.Drawing.Size(33, 33);
             this.F5.TabIndex = 24;
@@ -424,7 +455,8 @@ namespace Chess
             // 
             this.G8.BackColor = System.Drawing.Color.White;
             this.G8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.G8.Location = new System.Drawing.Point(431, 239);
+            this.G8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.G8.Location = new System.Drawing.Point(431, 219);
             this.G8.Name = "G8";
             this.G8.Size = new System.Drawing.Size(33, 33);
             this.G8.TabIndex = 23;
@@ -436,7 +468,8 @@ namespace Chess
             // 
             this.G7.BackColor = System.Drawing.Color.White;
             this.G7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.G7.Location = new System.Drawing.Point(376, 239);
+            this.G7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.G7.Location = new System.Drawing.Point(376, 219);
             this.G7.Name = "G7";
             this.G7.Size = new System.Drawing.Size(33, 33);
             this.G7.TabIndex = 22;
@@ -448,7 +481,8 @@ namespace Chess
             // 
             this.H8.BackColor = System.Drawing.Color.White;
             this.H8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.H8.Location = new System.Drawing.Point(431, 185);
+            this.H8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.H8.Location = new System.Drawing.Point(431, 165);
             this.H8.Name = "H8";
             this.H8.Size = new System.Drawing.Size(33, 33);
             this.H8.TabIndex = 21;
@@ -459,7 +493,8 @@ namespace Chess
             // 
             this.H7.BackColor = System.Drawing.Color.White;
             this.H7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.H7.Location = new System.Drawing.Point(376, 185);
+            this.H7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.H7.Location = new System.Drawing.Point(376, 165);
             this.H7.Name = "H7";
             this.H7.Size = new System.Drawing.Size(33, 33);
             this.H7.TabIndex = 20;
@@ -470,7 +505,8 @@ namespace Chess
             // 
             this.G6.BackColor = System.Drawing.Color.White;
             this.G6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.G6.Location = new System.Drawing.Point(322, 239);
+            this.G6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.G6.Location = new System.Drawing.Point(322, 219);
             this.G6.Name = "G6";
             this.G6.Size = new System.Drawing.Size(33, 33);
             this.G6.TabIndex = 19;
@@ -482,7 +518,8 @@ namespace Chess
             // 
             this.G5.BackColor = System.Drawing.Color.White;
             this.G5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.G5.Location = new System.Drawing.Point(268, 239);
+            this.G5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.G5.Location = new System.Drawing.Point(268, 219);
             this.G5.Name = "G5";
             this.G5.Size = new System.Drawing.Size(33, 33);
             this.G5.TabIndex = 18;
@@ -494,7 +531,8 @@ namespace Chess
             // 
             this.H6.BackColor = System.Drawing.Color.White;
             this.H6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.H6.Location = new System.Drawing.Point(322, 185);
+            this.H6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.H6.Location = new System.Drawing.Point(322, 165);
             this.H6.Name = "H6";
             this.H6.Size = new System.Drawing.Size(33, 33);
             this.H6.TabIndex = 17;
@@ -505,7 +543,8 @@ namespace Chess
             // 
             this.H5.BackColor = System.Drawing.Color.White;
             this.H5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.H5.Location = new System.Drawing.Point(268, 185);
+            this.H5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.H5.Location = new System.Drawing.Point(268, 165);
             this.H5.Name = "H5";
             this.H5.Size = new System.Drawing.Size(33, 33);
             this.H5.TabIndex = 16;
@@ -516,7 +555,8 @@ namespace Chess
             // 
             this.A4.BackColor = System.Drawing.Color.White;
             this.A4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.A4.Location = new System.Drawing.Point(268, 562);
+            this.A4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.A4.Location = new System.Drawing.Point(215, 542);
             this.A4.Name = "A4";
             this.A4.Size = new System.Drawing.Size(33, 33);
             this.A4.TabIndex = 47;
@@ -528,7 +568,8 @@ namespace Chess
             // 
             this.A3.BackColor = System.Drawing.Color.White;
             this.A3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.A3.Location = new System.Drawing.Point(161, 562);
+            this.A3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.A3.Location = new System.Drawing.Point(161, 542);
             this.A3.Name = "A3";
             this.A3.Size = new System.Drawing.Size(33, 33);
             this.A3.TabIndex = 46;
@@ -540,7 +581,8 @@ namespace Chess
             // 
             this.B4.BackColor = System.Drawing.Color.White;
             this.B4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.B4.Location = new System.Drawing.Point(215, 508);
+            this.B4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.B4.Location = new System.Drawing.Point(215, 488);
             this.B4.Name = "B4";
             this.B4.Size = new System.Drawing.Size(33, 33);
             this.B4.TabIndex = 45;
@@ -552,7 +594,8 @@ namespace Chess
             // 
             this.B3.BackColor = System.Drawing.Color.White;
             this.B3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.B3.Location = new System.Drawing.Point(161, 508);
+            this.B3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.B3.Location = new System.Drawing.Point(161, 488);
             this.B3.Name = "B3";
             this.B3.Size = new System.Drawing.Size(33, 33);
             this.B3.TabIndex = 44;
@@ -564,7 +607,8 @@ namespace Chess
             // 
             this.A2.BackColor = System.Drawing.Color.White;
             this.A2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.A2.Location = new System.Drawing.Point(108, 562);
+            this.A2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.A2.Location = new System.Drawing.Point(108, 542);
             this.A2.Name = "A2";
             this.A2.Size = new System.Drawing.Size(33, 33);
             this.A2.TabIndex = 43;
@@ -576,7 +620,8 @@ namespace Chess
             // 
             this.A1.BackColor = System.Drawing.Color.White;
             this.A1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.A1.Location = new System.Drawing.Point(53, 562);
+            this.A1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.A1.Location = new System.Drawing.Point(53, 542);
             this.A1.Name = "A1";
             this.A1.Size = new System.Drawing.Size(33, 33);
             this.A1.TabIndex = 42;
@@ -588,7 +633,8 @@ namespace Chess
             // 
             this.B2.BackColor = System.Drawing.Color.White;
             this.B2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.B2.Location = new System.Drawing.Point(108, 508);
+            this.B2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.B2.Location = new System.Drawing.Point(108, 488);
             this.B2.Name = "B2";
             this.B2.Size = new System.Drawing.Size(33, 33);
             this.B2.TabIndex = 41;
@@ -600,7 +646,8 @@ namespace Chess
             // 
             this.B1.BackColor = System.Drawing.Color.White;
             this.B1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.B1.Location = new System.Drawing.Point(53, 508);
+            this.B1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.B1.Location = new System.Drawing.Point(53, 488);
             this.B1.Name = "B1";
             this.B1.Size = new System.Drawing.Size(33, 33);
             this.B1.TabIndex = 40;
@@ -612,7 +659,8 @@ namespace Chess
             // 
             this.C4.BackColor = System.Drawing.Color.White;
             this.C4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.C4.Location = new System.Drawing.Point(215, 454);
+            this.C4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.C4.Location = new System.Drawing.Point(215, 434);
             this.C4.Name = "C4";
             this.C4.Size = new System.Drawing.Size(33, 33);
             this.C4.TabIndex = 39;
@@ -624,7 +672,8 @@ namespace Chess
             // 
             this.C3.BackColor = System.Drawing.Color.White;
             this.C3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.C3.Location = new System.Drawing.Point(161, 454);
+            this.C3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.C3.Location = new System.Drawing.Point(161, 434);
             this.C3.Name = "C3";
             this.C3.Size = new System.Drawing.Size(33, 33);
             this.C3.TabIndex = 38;
@@ -636,7 +685,8 @@ namespace Chess
             // 
             this.D4.BackColor = System.Drawing.Color.White;
             this.D4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.D4.Location = new System.Drawing.Point(215, 400);
+            this.D4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.D4.Location = new System.Drawing.Point(215, 380);
             this.D4.Name = "D4";
             this.D4.Size = new System.Drawing.Size(33, 33);
             this.D4.TabIndex = 37;
@@ -648,7 +698,8 @@ namespace Chess
             // 
             this.D3.BackColor = System.Drawing.Color.White;
             this.D3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.D3.Location = new System.Drawing.Point(161, 400);
+            this.D3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.D3.Location = new System.Drawing.Point(161, 380);
             this.D3.Name = "D3";
             this.D3.Size = new System.Drawing.Size(33, 33);
             this.D3.TabIndex = 36;
@@ -660,7 +711,8 @@ namespace Chess
             // 
             this.C2.BackColor = System.Drawing.Color.White;
             this.C2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.C2.Location = new System.Drawing.Point(108, 454);
+            this.C2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.C2.Location = new System.Drawing.Point(108, 434);
             this.C2.Name = "C2";
             this.C2.Size = new System.Drawing.Size(33, 33);
             this.C2.TabIndex = 35;
@@ -672,7 +724,8 @@ namespace Chess
             // 
             this.C1.BackColor = System.Drawing.Color.White;
             this.C1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.C1.Location = new System.Drawing.Point(53, 454);
+            this.C1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.C1.Location = new System.Drawing.Point(53, 434);
             this.C1.Name = "C1";
             this.C1.Size = new System.Drawing.Size(33, 33);
             this.C1.TabIndex = 34;
@@ -684,7 +737,8 @@ namespace Chess
             // 
             this.D2.BackColor = System.Drawing.Color.White;
             this.D2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.D2.Location = new System.Drawing.Point(108, 400);
+            this.D2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.D2.Location = new System.Drawing.Point(108, 380);
             this.D2.Name = "D2";
             this.D2.Size = new System.Drawing.Size(33, 33);
             this.D2.TabIndex = 33;
@@ -696,7 +750,8 @@ namespace Chess
             // 
             this.D1.BackColor = System.Drawing.Color.White;
             this.D1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.D1.Location = new System.Drawing.Point(53, 400);
+            this.D1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.D1.Location = new System.Drawing.Point(53, 380);
             this.D1.Name = "D1";
             this.D1.Size = new System.Drawing.Size(33, 33);
             this.D1.TabIndex = 32;
@@ -708,7 +763,8 @@ namespace Chess
             // 
             this.A8.BackColor = System.Drawing.Color.White;
             this.A8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.A8.Location = new System.Drawing.Point(431, 562);
+            this.A8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.A8.Location = new System.Drawing.Point(431, 542);
             this.A8.Name = "A8";
             this.A8.Size = new System.Drawing.Size(33, 33);
             this.A8.TabIndex = 63;
@@ -720,7 +776,8 @@ namespace Chess
             // 
             this.A7.BackColor = System.Drawing.Color.White;
             this.A7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.A7.Location = new System.Drawing.Point(376, 562);
+            this.A7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.A7.Location = new System.Drawing.Point(376, 542);
             this.A7.Name = "A7";
             this.A7.Size = new System.Drawing.Size(33, 33);
             this.A7.TabIndex = 62;
@@ -732,7 +789,8 @@ namespace Chess
             // 
             this.B8.BackColor = System.Drawing.Color.White;
             this.B8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.B8.Location = new System.Drawing.Point(431, 508);
+            this.B8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.B8.Location = new System.Drawing.Point(431, 488);
             this.B8.Name = "B8";
             this.B8.Size = new System.Drawing.Size(33, 33);
             this.B8.TabIndex = 61;
@@ -744,7 +802,8 @@ namespace Chess
             // 
             this.B7.BackColor = System.Drawing.Color.White;
             this.B7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.B7.Location = new System.Drawing.Point(376, 508);
+            this.B7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.B7.Location = new System.Drawing.Point(376, 488);
             this.B7.Name = "B7";
             this.B7.Size = new System.Drawing.Size(33, 33);
             this.B7.TabIndex = 60;
@@ -756,7 +815,8 @@ namespace Chess
             // 
             this.A6.BackColor = System.Drawing.Color.White;
             this.A6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.A6.Location = new System.Drawing.Point(322, 562);
+            this.A6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.A6.Location = new System.Drawing.Point(322, 542);
             this.A6.Name = "A6";
             this.A6.Size = new System.Drawing.Size(33, 33);
             this.A6.TabIndex = 59;
@@ -768,7 +828,8 @@ namespace Chess
             // 
             this.A5.BackColor = System.Drawing.Color.White;
             this.A5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.A5.Location = new System.Drawing.Point(215, 562);
+            this.A5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.A5.Location = new System.Drawing.Point(268, 542);
             this.A5.Name = "A5";
             this.A5.Size = new System.Drawing.Size(33, 33);
             this.A5.TabIndex = 58;
@@ -780,7 +841,8 @@ namespace Chess
             // 
             this.B6.BackColor = System.Drawing.Color.White;
             this.B6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.B6.Location = new System.Drawing.Point(322, 508);
+            this.B6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.B6.Location = new System.Drawing.Point(322, 488);
             this.B6.Name = "B6";
             this.B6.Size = new System.Drawing.Size(33, 33);
             this.B6.TabIndex = 57;
@@ -792,7 +854,8 @@ namespace Chess
             // 
             this.B5.BackColor = System.Drawing.Color.White;
             this.B5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.B5.Location = new System.Drawing.Point(268, 508);
+            this.B5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.B5.Location = new System.Drawing.Point(268, 488);
             this.B5.Name = "B5";
             this.B5.Size = new System.Drawing.Size(33, 33);
             this.B5.TabIndex = 56;
@@ -804,7 +867,8 @@ namespace Chess
             // 
             this.C8.BackColor = System.Drawing.Color.White;
             this.C8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.C8.Location = new System.Drawing.Point(431, 454);
+            this.C8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.C8.Location = new System.Drawing.Point(431, 434);
             this.C8.Name = "C8";
             this.C8.Size = new System.Drawing.Size(33, 33);
             this.C8.TabIndex = 55;
@@ -816,7 +880,8 @@ namespace Chess
             // 
             this.C7.BackColor = System.Drawing.Color.White;
             this.C7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.C7.Location = new System.Drawing.Point(376, 454);
+            this.C7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.C7.Location = new System.Drawing.Point(376, 434);
             this.C7.Name = "C7";
             this.C7.Size = new System.Drawing.Size(33, 33);
             this.C7.TabIndex = 54;
@@ -828,7 +893,8 @@ namespace Chess
             // 
             this.D8.BackColor = System.Drawing.Color.White;
             this.D8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.D8.Location = new System.Drawing.Point(431, 400);
+            this.D8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.D8.Location = new System.Drawing.Point(431, 380);
             this.D8.Name = "D8";
             this.D8.Size = new System.Drawing.Size(33, 33);
             this.D8.TabIndex = 53;
@@ -840,7 +906,8 @@ namespace Chess
             // 
             this.D7.BackColor = System.Drawing.Color.White;
             this.D7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.D7.Location = new System.Drawing.Point(376, 400);
+            this.D7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.D7.Location = new System.Drawing.Point(376, 380);
             this.D7.Name = "D7";
             this.D7.Size = new System.Drawing.Size(33, 33);
             this.D7.TabIndex = 52;
@@ -852,7 +919,8 @@ namespace Chess
             // 
             this.C6.BackColor = System.Drawing.Color.White;
             this.C6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.C6.Location = new System.Drawing.Point(322, 454);
+            this.C6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.C6.Location = new System.Drawing.Point(322, 434);
             this.C6.Name = "C6";
             this.C6.Size = new System.Drawing.Size(33, 33);
             this.C6.TabIndex = 51;
@@ -864,7 +932,8 @@ namespace Chess
             // 
             this.C5.BackColor = System.Drawing.Color.White;
             this.C5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.C5.Location = new System.Drawing.Point(268, 454);
+            this.C5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.C5.Location = new System.Drawing.Point(268, 434);
             this.C5.Name = "C5";
             this.C5.Size = new System.Drawing.Size(33, 33);
             this.C5.TabIndex = 50;
@@ -876,7 +945,8 @@ namespace Chess
             // 
             this.D6.BackColor = System.Drawing.Color.White;
             this.D6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.D6.Location = new System.Drawing.Point(322, 400);
+            this.D6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.D6.Location = new System.Drawing.Point(322, 380);
             this.D6.Name = "D6";
             this.D6.Size = new System.Drawing.Size(33, 33);
             this.D6.TabIndex = 49;
@@ -888,7 +958,8 @@ namespace Chess
             // 
             this.D5.BackColor = System.Drawing.Color.White;
             this.D5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.D5.Location = new System.Drawing.Point(268, 400);
+            this.D5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.D5.Location = new System.Drawing.Point(268, 380);
             this.D5.Name = "D5";
             this.D5.Size = new System.Drawing.Size(33, 33);
             this.D5.TabIndex = 48;
@@ -896,194 +967,21 @@ namespace Chess
             this.D5.UseVisualStyleBackColor = false;
             this.D5.Click += new System.EventHandler(this.D5_Click);
             // 
-            // WP8
-            // 
-            this.WP8.BackColor = System.Drawing.Color.White;
-            this.WP8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.WP8.Location = new System.Drawing.Point(431, 109);
-            this.WP8.Name = "WP8";
-            this.WP8.Size = new System.Drawing.Size(33, 33);
-            this.WP8.TabIndex = 95;
-            this.WP8.Text = " ";
-            this.WP8.UseVisualStyleBackColor = false;
-            this.WP8.Click += new System.EventHandler(this.WP8_Click);
-            // 
-            // WP7
-            // 
-            this.WP7.BackColor = System.Drawing.Color.White;
-            this.WP7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.WP7.Location = new System.Drawing.Point(376, 109);
-            this.WP7.Name = "WP7";
-            this.WP7.Size = new System.Drawing.Size(33, 33);
-            this.WP7.TabIndex = 94;
-            this.WP7.Text = " ";
-            this.WP7.UseVisualStyleBackColor = false;
-            this.WP7.Click += new System.EventHandler(this.WP7_Click);
-            // 
-            // WRR
-            // 
-            this.WRR.BackColor = System.Drawing.Color.White;
-            this.WRR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.WRR.Location = new System.Drawing.Point(431, 55);
-            this.WRR.Name = "WRR";
-            this.WRR.Size = new System.Drawing.Size(33, 33);
-            this.WRR.TabIndex = 93;
-            this.WRR.UseVisualStyleBackColor = false;
-            this.WRR.Click += new System.EventHandler(this.WRR_Click);
-            // 
-            // WKR
-            // 
-            this.WKR.BackColor = System.Drawing.Color.White;
-            this.WKR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.WKR.Location = new System.Drawing.Point(376, 55);
-            this.WKR.Name = "WKR";
-            this.WKR.Size = new System.Drawing.Size(33, 33);
-            this.WKR.TabIndex = 92;
-            this.WKR.UseVisualStyleBackColor = false;
-            this.WKR.Click += new System.EventHandler(this.WKR_Click);
-            // 
-            // WP6
-            // 
-            this.WP6.BackColor = System.Drawing.Color.White;
-            this.WP6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.WP6.Location = new System.Drawing.Point(322, 109);
-            this.WP6.Name = "WP6";
-            this.WP6.Size = new System.Drawing.Size(33, 33);
-            this.WP6.TabIndex = 91;
-            this.WP6.Text = " ";
-            this.WP6.UseVisualStyleBackColor = false;
-            this.WP6.Click += new System.EventHandler(this.WP6_Click);
-            // 
-            // WP5
-            // 
-            this.WP5.BackColor = System.Drawing.Color.White;
-            this.WP5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.WP5.Location = new System.Drawing.Point(268, 109);
-            this.WP5.Name = "WP5";
-            this.WP5.Size = new System.Drawing.Size(33, 33);
-            this.WP5.TabIndex = 90;
-            this.WP5.Text = " ";
-            this.WP5.UseVisualStyleBackColor = false;
-            this.WP5.Click += new System.EventHandler(this.WP5_Click);
-            // 
-            // WBR
-            // 
-            this.WBR.BackColor = System.Drawing.Color.White;
-            this.WBR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.WBR.Location = new System.Drawing.Point(322, 55);
-            this.WBR.Name = "WBR";
-            this.WBR.Size = new System.Drawing.Size(33, 33);
-            this.WBR.TabIndex = 89;
-            this.WBR.UseVisualStyleBackColor = false;
-            this.WBR.Click += new System.EventHandler(this.WBR_Click);
-            // 
-            // WP4
-            // 
-            this.WP4.BackColor = System.Drawing.Color.White;
-            this.WP4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.WP4.Location = new System.Drawing.Point(215, 109);
-            this.WP4.Name = "WP4";
-            this.WP4.Size = new System.Drawing.Size(33, 33);
-            this.WP4.TabIndex = 87;
-            this.WP4.Text = " ";
-            this.WP4.UseVisualStyleBackColor = false;
-            this.WP4.Click += new System.EventHandler(this.WP4_Click);
-            // 
-            // WP3
-            // 
-            this.WP3.BackColor = System.Drawing.Color.White;
-            this.WP3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.WP3.Location = new System.Drawing.Point(161, 109);
-            this.WP3.Name = "WP3";
-            this.WP3.Size = new System.Drawing.Size(33, 33);
-            this.WP3.TabIndex = 86;
-            this.WP3.Text = " ";
-            this.WP3.UseVisualStyleBackColor = false;
-            this.WP3.Click += new System.EventHandler(this.WP3_Click);
-            // 
-            // WQ
-            // 
-            this.WQ.BackColor = System.Drawing.Color.White;
-            this.WQ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.WQ.Location = new System.Drawing.Point(215, 55);
-            this.WQ.Name = "WQ";
-            this.WQ.Size = new System.Drawing.Size(33, 33);
-            this.WQ.TabIndex = 85;
-            this.WQ.UseVisualStyleBackColor = false;
-            this.WQ.Click += new System.EventHandler(this.WQ_Click);
-            // 
-            // WBL
-            // 
-            this.WBL.BackColor = System.Drawing.Color.White;
-            this.WBL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.WBL.Location = new System.Drawing.Point(161, 55);
-            this.WBL.Name = "WBL";
-            this.WBL.Size = new System.Drawing.Size(33, 33);
-            this.WBL.TabIndex = 84;
-            this.WBL.UseVisualStyleBackColor = false;
-            this.WBL.Click += new System.EventHandler(this.WBL_Click);
-            // 
-            // WP2
-            // 
-            this.WP2.BackColor = System.Drawing.Color.White;
-            this.WP2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.WP2.Location = new System.Drawing.Point(108, 109);
-            this.WP2.Name = "WP2";
-            this.WP2.Size = new System.Drawing.Size(33, 33);
-            this.WP2.TabIndex = 83;
-            this.WP2.Text = " ";
-            this.WP2.UseVisualStyleBackColor = false;
-            this.WP2.Click += new System.EventHandler(this.WP2_Click);
-            // 
-            // WP1
-            // 
-            this.WP1.BackColor = System.Drawing.Color.White;
-            this.WP1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.WP1.Location = new System.Drawing.Point(53, 109);
-            this.WP1.Name = "WP1";
-            this.WP1.Size = new System.Drawing.Size(33, 33);
-            this.WP1.TabIndex = 82;
-            this.WP1.Text = " ";
-            this.WP1.UseVisualStyleBackColor = false;
-            this.WP1.Click += new System.EventHandler(this.WP1_Click);
-            // 
-            // WKL
-            // 
-            this.WKL.BackColor = System.Drawing.Color.White;
-            this.WKL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.WKL.Location = new System.Drawing.Point(108, 55);
-            this.WKL.Name = "WKL";
-            this.WKL.Size = new System.Drawing.Size(33, 33);
-            this.WKL.TabIndex = 81;
-            this.WKL.UseVisualStyleBackColor = false;
-            this.WKL.Click += new System.EventHandler(this.WKL_Click);
-            // 
-            // WRL
-            // 
-            this.WRL.BackColor = System.Drawing.Color.White;
-            this.WRL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.WRL.Location = new System.Drawing.Point(53, 55);
-            this.WRL.Name = "WRL";
-            this.WRL.Size = new System.Drawing.Size(33, 33);
-            this.WRL.TabIndex = 80;
-            this.WRL.UseVisualStyleBackColor = false;
-            this.WRL.Click += new System.EventHandler(this.WRL_Click);
-            // 
             // disconnect_button
             // 
             this.disconnect_button.BackColor = System.Drawing.SystemColors.Control;
-            this.disconnect_button.Location = new System.Drawing.Point(268, 729);
+            this.disconnect_button.Location = new System.Drawing.Point(268, 674);
             this.disconnect_button.Name = "disconnect_button";
             this.disconnect_button.Size = new System.Drawing.Size(87, 40);
             this.disconnect_button.TabIndex = 97;
-            this.disconnect_button.Text = "Disconnect";
+            this.disconnect_button.Text = "Draw";
             this.disconnect_button.UseVisualStyleBackColor = false;
             this.disconnect_button.Click += new System.EventHandler(this.disconnect_button_Click);
             // 
             // chat_button
             // 
             this.chat_button.BackColor = System.Drawing.SystemColors.Control;
-            this.chat_button.Location = new System.Drawing.Point(53, 729);
+            this.chat_button.Location = new System.Drawing.Point(53, 674);
             this.chat_button.Name = "chat_button";
             this.chat_button.Size = new System.Drawing.Size(88, 40);
             this.chat_button.TabIndex = 0;
@@ -1094,16 +992,16 @@ namespace Chess
             // transitionBox
             // 
             this.transitionBox.BackColor = System.Drawing.Color.White;
-            this.transitionBox.Location = new System.Drawing.Point(68, 70);
+            this.transitionBox.Location = new System.Drawing.Point(59, 70);
             this.transitionBox.Name = "transitionBox";
-            this.transitionBox.Size = new System.Drawing.Size(1, 1);
+            this.transitionBox.Size = new System.Drawing.Size(0, 0);
             this.transitionBox.TabIndex = 100;
             this.transitionBox.TabStop = false;
             // 
             // cancel_button
             // 
             this.cancel_button.BackColor = System.Drawing.SystemColors.Control;
-            this.cancel_button.Location = new System.Drawing.Point(376, 729);
+            this.cancel_button.Location = new System.Drawing.Point(376, 674);
             this.cancel_button.Name = "cancel_button";
             this.cancel_button.Size = new System.Drawing.Size(88, 40);
             this.cancel_button.TabIndex = 96;
@@ -1116,180 +1014,11 @@ namespace Chess
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.BackgroundImage = global::Chess.Properties.Resources.chess;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Location = new System.Drawing.Point(44, 175);
+            this.pictureBox1.Location = new System.Drawing.Point(44, 155);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(430, 430);
             this.pictureBox1.TabIndex = 101;
             this.pictureBox1.TabStop = false;
-            // 
-            // BP8
-            // 
-            this.BP8.BackColor = System.Drawing.Color.White;
-            this.BP8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BP8.Location = new System.Drawing.Point(431, 633);
-            this.BP8.Name = "BP8";
-            this.BP8.Size = new System.Drawing.Size(33, 33);
-            this.BP8.TabIndex = 102;
-            this.BP8.UseVisualStyleBackColor = false;
-            // 
-            // BRL
-            // 
-            this.BRL.BackColor = System.Drawing.Color.White;
-            this.BRL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BRL.Location = new System.Drawing.Point(53, 687);
-            this.BRL.Name = "BRL";
-            this.BRL.Size = new System.Drawing.Size(33, 33);
-            this.BRL.TabIndex = 117;
-            this.BRL.Text = " ";
-            this.BRL.UseVisualStyleBackColor = false;
-            // 
-            // BKL
-            // 
-            this.BKL.BackColor = System.Drawing.Color.White;
-            this.BKL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BKL.Location = new System.Drawing.Point(108, 687);
-            this.BKL.Name = "BKL";
-            this.BKL.Size = new System.Drawing.Size(33, 33);
-            this.BKL.TabIndex = 116;
-            this.BKL.Text = " ";
-            this.BKL.UseVisualStyleBackColor = false;
-            // 
-            // BP1
-            // 
-            this.BP1.BackColor = System.Drawing.Color.White;
-            this.BP1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BP1.Location = new System.Drawing.Point(53, 633);
-            this.BP1.Name = "BP1";
-            this.BP1.Size = new System.Drawing.Size(33, 33);
-            this.BP1.TabIndex = 115;
-            this.BP1.UseVisualStyleBackColor = false;
-            // 
-            // BP2
-            // 
-            this.BP2.BackColor = System.Drawing.Color.White;
-            this.BP2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BP2.Location = new System.Drawing.Point(108, 633);
-            this.BP2.Name = "BP2";
-            this.BP2.Size = new System.Drawing.Size(33, 33);
-            this.BP2.TabIndex = 114;
-            this.BP2.UseVisualStyleBackColor = false;
-            // 
-            // BBL
-            // 
-            this.BBL.BackColor = System.Drawing.Color.White;
-            this.BBL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BBL.Location = new System.Drawing.Point(161, 687);
-            this.BBL.Name = "BBL";
-            this.BBL.Size = new System.Drawing.Size(33, 33);
-            this.BBL.TabIndex = 113;
-            this.BBL.Text = " ";
-            this.BBL.UseVisualStyleBackColor = false;
-            // 
-            // BK
-            // 
-            this.BK.BackColor = System.Drawing.Color.White;
-            this.BK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BK.Location = new System.Drawing.Point(215, 687);
-            this.BK.Name = "BK";
-            this.BK.Size = new System.Drawing.Size(33, 33);
-            this.BK.TabIndex = 112;
-            this.BK.Text = " ";
-            this.BK.UseVisualStyleBackColor = false;
-            this.BK.Click += new System.EventHandler(this.BK_Click);
-            // 
-            // BP3
-            // 
-            this.BP3.BackColor = System.Drawing.Color.White;
-            this.BP3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BP3.Location = new System.Drawing.Point(161, 633);
-            this.BP3.Name = "BP3";
-            this.BP3.Size = new System.Drawing.Size(33, 33);
-            this.BP3.TabIndex = 111;
-            this.BP3.UseVisualStyleBackColor = false;
-            // 
-            // BP4
-            // 
-            this.BP4.BackColor = System.Drawing.Color.White;
-            this.BP4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BP4.Location = new System.Drawing.Point(215, 633);
-            this.BP4.Name = "BP4";
-            this.BP4.Size = new System.Drawing.Size(33, 33);
-            this.BP4.TabIndex = 110;
-            this.BP4.UseVisualStyleBackColor = false;
-            // 
-            // BQ
-            // 
-            this.BQ.BackColor = System.Drawing.Color.White;
-            this.BQ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BQ.Location = new System.Drawing.Point(268, 687);
-            this.BQ.Name = "BQ";
-            this.BQ.Size = new System.Drawing.Size(33, 33);
-            this.BQ.TabIndex = 109;
-            this.BQ.Text = " ";
-            this.BQ.UseVisualStyleBackColor = false;
-            // 
-            // BBR
-            // 
-            this.BBR.BackColor = System.Drawing.Color.White;
-            this.BBR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BBR.Location = new System.Drawing.Point(322, 687);
-            this.BBR.Name = "BBR";
-            this.BBR.Size = new System.Drawing.Size(33, 33);
-            this.BBR.TabIndex = 108;
-            this.BBR.Text = " ";
-            this.BBR.UseVisualStyleBackColor = false;
-            // 
-            // BP5
-            // 
-            this.BP5.BackColor = System.Drawing.Color.White;
-            this.BP5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BP5.Location = new System.Drawing.Point(268, 633);
-            this.BP5.Name = "BP5";
-            this.BP5.Size = new System.Drawing.Size(33, 33);
-            this.BP5.TabIndex = 107;
-            this.BP5.UseVisualStyleBackColor = false;
-            // 
-            // BP6
-            // 
-            this.BP6.BackColor = System.Drawing.Color.White;
-            this.BP6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BP6.Location = new System.Drawing.Point(322, 633);
-            this.BP6.Name = "BP6";
-            this.BP6.Size = new System.Drawing.Size(33, 33);
-            this.BP6.TabIndex = 106;
-            this.BP6.UseVisualStyleBackColor = false;
-            // 
-            // BKR
-            // 
-            this.BKR.BackColor = System.Drawing.Color.White;
-            this.BKR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BKR.Location = new System.Drawing.Point(376, 687);
-            this.BKR.Name = "BKR";
-            this.BKR.Size = new System.Drawing.Size(33, 33);
-            this.BKR.TabIndex = 105;
-            this.BKR.Text = " ";
-            this.BKR.UseVisualStyleBackColor = false;
-            // 
-            // BRR
-            // 
-            this.BRR.BackColor = System.Drawing.Color.White;
-            this.BRR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BRR.Location = new System.Drawing.Point(431, 687);
-            this.BRR.Name = "BRR";
-            this.BRR.Size = new System.Drawing.Size(33, 33);
-            this.BRR.TabIndex = 104;
-            this.BRR.Text = " ";
-            this.BRR.UseVisualStyleBackColor = false;
-            // 
-            // BP7
-            // 
-            this.BP7.BackColor = System.Drawing.Color.White;
-            this.BP7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BP7.Location = new System.Drawing.Point(376, 633);
-            this.BP7.Name = "BP7";
-            this.BP7.Size = new System.Drawing.Size(33, 33);
-            this.BP7.TabIndex = 103;
-            this.BP7.UseVisualStyleBackColor = false;
             // 
             // transitionBoxNull
             // 
@@ -1298,16 +1027,6 @@ namespace Chess
             this.transitionBoxNull.Size = new System.Drawing.Size(0, 0);
             this.transitionBoxNull.TabIndex = 118;
             this.transitionBoxNull.TabStop = false;
-            // 
-            // WK
-            // 
-            this.WK.BackColor = System.Drawing.Color.White;
-            this.WK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.WK.Location = new System.Drawing.Point(268, 55);
-            this.WK.Name = "WK";
-            this.WK.Size = new System.Drawing.Size(33, 33);
-            this.WK.TabIndex = 121;
-            this.WK.UseVisualStyleBackColor = false;
             // 
             // textBox1
             // 
@@ -1319,13 +1038,275 @@ namespace Chess
             // concedeButton
             // 
             this.concedeButton.BackColor = System.Drawing.SystemColors.Control;
-            this.concedeButton.Location = new System.Drawing.Point(161, 729);
+            this.concedeButton.Location = new System.Drawing.Point(161, 674);
             this.concedeButton.Name = "concedeButton";
             this.concedeButton.Size = new System.Drawing.Size(87, 40);
             this.concedeButton.TabIndex = 123;
-            this.concedeButton.Text = "Concede";
+            this.concedeButton.Text = "Resign";
             this.concedeButton.UseVisualStyleBackColor = false;
             this.concedeButton.Click += new System.EventHandler(this.concedeButton_Click);
+            // 
+            // oppPawnBox
+            // 
+            this.oppPawnBox.Location = new System.Drawing.Point(44, 591);
+            this.oppPawnBox.Name = "oppPawnBox";
+            this.oppPawnBox.Size = new System.Drawing.Size(55, 55);
+            this.oppPawnBox.TabIndex = 124;
+            this.oppPawnBox.TabStop = false;
+            // 
+            // oppKnightBox
+            // 
+            this.oppKnightBox.Location = new System.Drawing.Point(136, 591);
+            this.oppKnightBox.Name = "oppKnightBox";
+            this.oppKnightBox.Size = new System.Drawing.Size(55, 55);
+            this.oppKnightBox.TabIndex = 125;
+            this.oppKnightBox.TabStop = false;
+            // 
+            // oppBishopBox
+            // 
+            this.oppBishopBox.Location = new System.Drawing.Point(322, 591);
+            this.oppBishopBox.Name = "oppBishopBox";
+            this.oppBishopBox.Size = new System.Drawing.Size(55, 55);
+            this.oppBishopBox.TabIndex = 127;
+            this.oppBishopBox.TabStop = false;
+            // 
+            // oppRookBox
+            // 
+            this.oppRookBox.Location = new System.Drawing.Point(228, 591);
+            this.oppRookBox.Name = "oppRookBox";
+            this.oppRookBox.Size = new System.Drawing.Size(55, 55);
+            this.oppRookBox.TabIndex = 126;
+            this.oppRookBox.TabStop = false;
+            // 
+            // oppQueenBox
+            // 
+            this.oppQueenBox.Location = new System.Drawing.Point(419, 591);
+            this.oppQueenBox.Name = "oppQueenBox";
+            this.oppQueenBox.Size = new System.Drawing.Size(55, 55);
+            this.oppQueenBox.TabIndex = 129;
+            this.oppQueenBox.TabStop = false;
+            // 
+            // oppQueenLabel
+            // 
+            this.oppQueenLabel.AutoSize = true;
+            this.oppQueenLabel.Location = new System.Drawing.Point(429, 655);
+            this.oppQueenLabel.Name = "oppQueenLabel";
+            this.oppQueenLabel.Size = new System.Drawing.Size(18, 13);
+            this.oppQueenLabel.TabIndex = 147;
+            this.oppQueenLabel.Text = "x0";
+            // 
+            // oppBishopLabel
+            // 
+            this.oppBishopLabel.AutoSize = true;
+            this.oppBishopLabel.Location = new System.Drawing.Point(331, 655);
+            this.oppBishopLabel.Name = "oppBishopLabel";
+            this.oppBishopLabel.Size = new System.Drawing.Size(18, 13);
+            this.oppBishopLabel.TabIndex = 145;
+            this.oppBishopLabel.Text = "x0";
+            // 
+            // oppRookLabel
+            // 
+            this.oppRookLabel.AutoSize = true;
+            this.oppRookLabel.Location = new System.Drawing.Point(237, 655);
+            this.oppRookLabel.Name = "oppRookLabel";
+            this.oppRookLabel.Size = new System.Drawing.Size(18, 13);
+            this.oppRookLabel.TabIndex = 144;
+            this.oppRookLabel.Text = "x0";
+            // 
+            // oppKnightLabel
+            // 
+            this.oppKnightLabel.AutoSize = true;
+            this.oppKnightLabel.Location = new System.Drawing.Point(146, 655);
+            this.oppKnightLabel.Name = "oppKnightLabel";
+            this.oppKnightLabel.Size = new System.Drawing.Size(18, 13);
+            this.oppKnightLabel.TabIndex = 143;
+            this.oppKnightLabel.Text = "x0";
+            // 
+            // oppPawnLabel
+            // 
+            this.oppPawnLabel.AutoSize = true;
+            this.oppPawnLabel.Location = new System.Drawing.Point(52, 655);
+            this.oppPawnLabel.Name = "oppPawnLabel";
+            this.oppPawnLabel.Size = new System.Drawing.Size(18, 13);
+            this.oppPawnLabel.TabIndex = 142;
+            this.oppPawnLabel.Text = "x0";
+            // 
+            // knightSelectButton
+            // 
+            this.knightSelectButton.Enabled = false;
+            this.knightSelectButton.Location = new System.Drawing.Point(53, 13);
+            this.knightSelectButton.Name = "knightSelectButton";
+            this.knightSelectButton.Size = new System.Drawing.Size(88, 43);
+            this.knightSelectButton.TabIndex = 148;
+            this.knightSelectButton.Text = "Knight";
+            this.knightSelectButton.UseVisualStyleBackColor = true;
+            this.knightSelectButton.Click += new System.EventHandler(this.knightSelectButton_Click);
+            // 
+            // rookSelectButton
+            // 
+            this.rookSelectButton.Enabled = false;
+            this.rookSelectButton.Location = new System.Drawing.Point(161, 12);
+            this.rookSelectButton.Name = "rookSelectButton";
+            this.rookSelectButton.Size = new System.Drawing.Size(87, 43);
+            this.rookSelectButton.TabIndex = 149;
+            this.rookSelectButton.Text = "Rook";
+            this.rookSelectButton.UseVisualStyleBackColor = true;
+            this.rookSelectButton.Click += new System.EventHandler(this.rookSelectButton_Click);
+            // 
+            // bishopSelectButton
+            // 
+            this.bishopSelectButton.Enabled = false;
+            this.bishopSelectButton.Location = new System.Drawing.Point(268, 12);
+            this.bishopSelectButton.Name = "bishopSelectButton";
+            this.bishopSelectButton.Size = new System.Drawing.Size(87, 43);
+            this.bishopSelectButton.TabIndex = 150;
+            this.bishopSelectButton.Text = "Bishop";
+            this.bishopSelectButton.UseVisualStyleBackColor = true;
+            this.bishopSelectButton.Click += new System.EventHandler(this.bishopSelectButton_Click);
+            // 
+            // queenSelectButton
+            // 
+            this.queenSelectButton.Enabled = false;
+            this.queenSelectButton.Location = new System.Drawing.Point(376, 13);
+            this.queenSelectButton.Name = "queenSelectButton";
+            this.queenSelectButton.Size = new System.Drawing.Size(88, 43);
+            this.queenSelectButton.TabIndex = 151;
+            this.queenSelectButton.Text = "Queen";
+            this.queenSelectButton.UseVisualStyleBackColor = true;
+            this.queenSelectButton.Click += new System.EventHandler(this.queenSelectButton_Click);
+            // 
+            // queenLabel
+            // 
+            this.queenLabel.AutoSize = true;
+            this.queenLabel.Location = new System.Drawing.Point(429, 132);
+            this.queenLabel.Name = "queenLabel";
+            this.queenLabel.Size = new System.Drawing.Size(18, 13);
+            this.queenLabel.TabIndex = 161;
+            this.queenLabel.Text = "x0";
+            // 
+            // bishopLabel
+            // 
+            this.bishopLabel.AutoSize = true;
+            this.bishopLabel.Location = new System.Drawing.Point(331, 132);
+            this.bishopLabel.Name = "bishopLabel";
+            this.bishopLabel.Size = new System.Drawing.Size(18, 13);
+            this.bishopLabel.TabIndex = 160;
+            this.bishopLabel.Text = "x0";
+            // 
+            // rookLabel
+            // 
+            this.rookLabel.AutoSize = true;
+            this.rookLabel.Location = new System.Drawing.Point(237, 132);
+            this.rookLabel.Name = "rookLabel";
+            this.rookLabel.Size = new System.Drawing.Size(18, 13);
+            this.rookLabel.TabIndex = 159;
+            this.rookLabel.Text = "x0";
+            // 
+            // knightLabel
+            // 
+            this.knightLabel.AutoSize = true;
+            this.knightLabel.Location = new System.Drawing.Point(146, 132);
+            this.knightLabel.Name = "knightLabel";
+            this.knightLabel.Size = new System.Drawing.Size(18, 13);
+            this.knightLabel.TabIndex = 158;
+            this.knightLabel.Text = "x0";
+            // 
+            // pawnLabel
+            // 
+            this.pawnLabel.AutoSize = true;
+            this.pawnLabel.Location = new System.Drawing.Point(52, 132);
+            this.pawnLabel.Name = "pawnLabel";
+            this.pawnLabel.Size = new System.Drawing.Size(18, 13);
+            this.pawnLabel.TabIndex = 157;
+            this.pawnLabel.Text = "x0";
+            // 
+            // queenBox
+            // 
+            this.queenBox.Location = new System.Drawing.Point(419, 68);
+            this.queenBox.Name = "queenBox";
+            this.queenBox.Size = new System.Drawing.Size(55, 55);
+            this.queenBox.TabIndex = 156;
+            this.queenBox.TabStop = false;
+            // 
+            // bishopBox
+            // 
+            this.bishopBox.Location = new System.Drawing.Point(322, 68);
+            this.bishopBox.Name = "bishopBox";
+            this.bishopBox.Size = new System.Drawing.Size(55, 55);
+            this.bishopBox.TabIndex = 155;
+            this.bishopBox.TabStop = false;
+            // 
+            // rookBox
+            // 
+            this.rookBox.Location = new System.Drawing.Point(228, 68);
+            this.rookBox.Name = "rookBox";
+            this.rookBox.Size = new System.Drawing.Size(55, 55);
+            this.rookBox.TabIndex = 154;
+            this.rookBox.TabStop = false;
+            // 
+            // knightBox
+            // 
+            this.knightBox.Location = new System.Drawing.Point(136, 68);
+            this.knightBox.Name = "knightBox";
+            this.knightBox.Size = new System.Drawing.Size(55, 55);
+            this.knightBox.TabIndex = 153;
+            this.knightBox.TabStop = false;
+            // 
+            // pawnBox
+            // 
+            this.pawnBox.Location = new System.Drawing.Point(44, 68);
+            this.pawnBox.Name = "pawnBox";
+            this.pawnBox.Size = new System.Drawing.Size(55, 55);
+            this.pawnBox.TabIndex = 152;
+            this.pawnBox.TabStop = false;
+            // 
+            // saveGameButton
+            // 
+            this.saveGameButton.Location = new System.Drawing.Point(44, 731);
+            this.saveGameButton.Name = "saveGameButton";
+            this.saveGameButton.Size = new System.Drawing.Size(141, 38);
+            this.saveGameButton.TabIndex = 162;
+            this.saveGameButton.Text = "Save Game";
+            this.saveGameButton.UseVisualStyleBackColor = true;
+            this.saveGameButton.Click += new System.EventHandler(this.saveGameButton_Click);
+            // 
+            // loadGameButton
+            // 
+            this.loadGameButton.Location = new System.Drawing.Point(191, 731);
+            this.loadGameButton.Name = "loadGameButton";
+            this.loadGameButton.Size = new System.Drawing.Size(138, 38);
+            this.loadGameButton.TabIndex = 163;
+            this.loadGameButton.Text = "Load Saved Game";
+            this.loadGameButton.UseVisualStyleBackColor = true;
+            this.loadGameButton.Click += new System.EventHandler(this.loadGameButton_Click);
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.DefaultExt = "chess";
+            this.saveFileDialog.FileName = "*";
+            this.saveFileDialog.Filter = "Chess files (*.chess)|*.chess";
+            this.saveFileDialog.InitialDirectory = "C:\\";
+            this.saveFileDialog.OverwritePrompt = false;
+            this.saveFileDialog.RestoreDirectory = true;
+            this.saveFileDialog.Title = "Chess Game Save";
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.DefaultExt = "chess";
+            this.openFileDialog.Filter = "Chess files (*.chess)|*.chess";
+            this.openFileDialog.InitialDirectory = "C:\\";
+            this.openFileDialog.RestoreDirectory = true;
+            this.openFileDialog.Title = "Chess Game Load";
+            // 
+            // replayGameButton
+            // 
+            this.replayGameButton.Location = new System.Drawing.Point(336, 731);
+            this.replayGameButton.Name = "replayGameButton";
+            this.replayGameButton.Size = new System.Drawing.Size(138, 38);
+            this.replayGameButton.TabIndex = 164;
+            this.replayGameButton.Text = "Replay Game";
+            this.replayGameButton.UseVisualStyleBackColor = true;
+            this.replayGameButton.Click += new System.EventHandler(this.replayGameButton_Click);
             // 
             // MainGame
             // 
@@ -1335,44 +1316,38 @@ namespace Chess
             this.BackgroundImage = global::Chess.Properties.Resources.wood_grain_effect_clipart;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(514, 781);
+            this.Controls.Add(this.replayGameButton);
+            this.Controls.Add(this.loadGameButton);
+            this.Controls.Add(this.saveGameButton);
+            this.Controls.Add(this.queenLabel);
+            this.Controls.Add(this.bishopLabel);
+            this.Controls.Add(this.rookLabel);
+            this.Controls.Add(this.knightLabel);
+            this.Controls.Add(this.pawnLabel);
+            this.Controls.Add(this.queenBox);
+            this.Controls.Add(this.bishopBox);
+            this.Controls.Add(this.rookBox);
+            this.Controls.Add(this.knightBox);
+            this.Controls.Add(this.pawnBox);
+            this.Controls.Add(this.queenSelectButton);
+            this.Controls.Add(this.bishopSelectButton);
+            this.Controls.Add(this.rookSelectButton);
+            this.Controls.Add(this.knightSelectButton);
+            this.Controls.Add(this.oppQueenLabel);
+            this.Controls.Add(this.oppBishopLabel);
+            this.Controls.Add(this.oppRookLabel);
+            this.Controls.Add(this.oppKnightLabel);
+            this.Controls.Add(this.oppPawnLabel);
+            this.Controls.Add(this.oppQueenBox);
+            this.Controls.Add(this.oppBishopBox);
+            this.Controls.Add(this.oppRookBox);
+            this.Controls.Add(this.oppKnightBox);
+            this.Controls.Add(this.oppPawnBox);
             this.Controls.Add(this.concedeButton);
-            this.Controls.Add(this.WK);
             this.Controls.Add(this.transitionBoxNull);
-            this.Controls.Add(this.BP8);
-            this.Controls.Add(this.BRL);
-            this.Controls.Add(this.BKL);
-            this.Controls.Add(this.BP1);
-            this.Controls.Add(this.BP2);
-            this.Controls.Add(this.BBL);
-            this.Controls.Add(this.BK);
-            this.Controls.Add(this.BP3);
-            this.Controls.Add(this.BP4);
-            this.Controls.Add(this.BQ);
-            this.Controls.Add(this.BBR);
-            this.Controls.Add(this.BP5);
-            this.Controls.Add(this.BP6);
-            this.Controls.Add(this.BKR);
-            this.Controls.Add(this.BRR);
-            this.Controls.Add(this.BP7);
-            this.Controls.Add(this.WRL);
-            this.Controls.Add(this.transitionBox);
             this.Controls.Add(this.chat_button);
             this.Controls.Add(this.disconnect_button);
             this.Controls.Add(this.cancel_button);
-            this.Controls.Add(this.WP8);
-            this.Controls.Add(this.WP7);
-            this.Controls.Add(this.WRR);
-            this.Controls.Add(this.WKR);
-            this.Controls.Add(this.WP6);
-            this.Controls.Add(this.WP5);
-            this.Controls.Add(this.WBR);
-            this.Controls.Add(this.WP4);
-            this.Controls.Add(this.WP3);
-            this.Controls.Add(this.WQ);
-            this.Controls.Add(this.WBL);
-            this.Controls.Add(this.WP2);
-            this.Controls.Add(this.WP1);
-            this.Controls.Add(this.WKL);
             this.Controls.Add(this.A8);
             this.Controls.Add(this.A7);
             this.Controls.Add(this.B8);
@@ -1439,13 +1414,27 @@ namespace Chess
             this.Controls.Add(this.H1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.transitionBox);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainGame";
             this.Text = "Chess";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainGame_FormClosing);
+            this.Load += new System.EventHandler(this.MainGame_Load);
             ((System.ComponentModel.ISupportInitialize)(this.transitionBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.transitionBoxNull)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oppPawnBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oppKnightBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oppBishopBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oppRookBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oppQueenBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.queenBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bishopBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rookBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.knightBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pawnBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1517,46 +1506,43 @@ namespace Chess
         private System.Windows.Forms.Button C5;
         private System.Windows.Forms.Button D6;
         private System.Windows.Forms.Button D5;
-        private System.Windows.Forms.Button WP8;
-        private System.Windows.Forms.Button WP7;
-        private System.Windows.Forms.Button WRR;
-        private System.Windows.Forms.Button WKR;
-        private System.Windows.Forms.Button WP6;
-        private System.Windows.Forms.Button WP5;
-        private System.Windows.Forms.Button WBR;
-        private System.Windows.Forms.Button WP4;
-        private System.Windows.Forms.Button WP3;
-        private System.Windows.Forms.Button WQ;
-        private System.Windows.Forms.Button WBL;
-        private System.Windows.Forms.Button WP2;
-        private System.Windows.Forms.Button WP1;
-        private System.Windows.Forms.Button WKL;
-        private System.Windows.Forms.Button WRL;
         private System.Windows.Forms.Button disconnect_button;
         private System.Windows.Forms.Button chat_button;
         private System.Windows.Forms.PictureBox transitionBox;
         private System.Windows.Forms.Button cancel_button;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button BP8;
-        private System.Windows.Forms.Button BRL;
-        private System.Windows.Forms.Button BKL;
-        private System.Windows.Forms.Button BP1;
-        private System.Windows.Forms.Button BP2;
-        private System.Windows.Forms.Button BBL;
-        private System.Windows.Forms.Button BK;
-        private System.Windows.Forms.Button BP3;
-        private System.Windows.Forms.Button BP4;
-        private System.Windows.Forms.Button BQ;
-        private System.Windows.Forms.Button BBR;
-        private System.Windows.Forms.Button BP5;
-        private System.Windows.Forms.Button BP6;
-        private System.Windows.Forms.Button BKR;
-        private System.Windows.Forms.Button BRR;
-        private System.Windows.Forms.Button BP7;
         private System.Windows.Forms.PictureBox transitionBoxNull;
-        private System.Windows.Forms.Button WK;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button concedeButton;
+        private System.Windows.Forms.PictureBox oppPawnBox;
+        private System.Windows.Forms.PictureBox oppKnightBox;
+        private System.Windows.Forms.PictureBox oppBishopBox;
+        private System.Windows.Forms.PictureBox oppRookBox;
+        private System.Windows.Forms.PictureBox oppQueenBox;
+        private System.Windows.Forms.Label oppQueenLabel;
+        private System.Windows.Forms.Label oppBishopLabel;
+        private System.Windows.Forms.Label oppRookLabel;
+        private System.Windows.Forms.Label oppKnightLabel;
+        private System.Windows.Forms.Label oppPawnLabel;
+        private System.Windows.Forms.Button knightSelectButton;
+        private System.Windows.Forms.Button rookSelectButton;
+        private System.Windows.Forms.Button bishopSelectButton;
+        private System.Windows.Forms.Button queenSelectButton;
+        private System.Windows.Forms.Label queenLabel;
+        private System.Windows.Forms.Label bishopLabel;
+        private System.Windows.Forms.Label rookLabel;
+        private System.Windows.Forms.Label knightLabel;
+        private System.Windows.Forms.Label pawnLabel;
+        private System.Windows.Forms.PictureBox queenBox;
+        private System.Windows.Forms.PictureBox bishopBox;
+        private System.Windows.Forms.PictureBox rookBox;
+        private System.Windows.Forms.PictureBox knightBox;
+        private System.Windows.Forms.PictureBox pawnBox;
+        private System.Windows.Forms.Button saveGameButton;
+        private System.Windows.Forms.Button loadGameButton;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.Button replayGameButton;
     }
 }
 

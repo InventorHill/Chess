@@ -8,8 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.IO;
-using System.Net;
 using System.Windows.Forms;
+using System.Net.Sockets;
+using System.Net;
+using System.Net.NetworkInformation;
+
 
 namespace Chess
 {
@@ -18,6 +21,62 @@ namespace Chess
         public Login()
         {
             InitializeComponent();
+
+            bool createFile = false;
+            if (LoginVariables.Player1_Current.Length != 16)
+                Array.Resize(ref LoginVariables.Player1_Current, 16);
+            if (LoginVariables.Player2_Current.Length != 16)
+                Array.Resize(ref LoginVariables.Player2_Current, 16);
+
+            if (File.Exists("chess.chessdat"))
+            {
+                try
+                {
+                    string fakeGUID = File.ReadAllLines("chess.chessdat")[0].ToString();
+                    if (fakeGUID != "aef769c0-5207-4b29-b38a-f1209252e9bb")
+                    {
+                        MessageBox.Show("chess.chessdat already exists in this location. Some features may not be available.", "File System Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoginVariables.replayAvailable = false;
+                    }
+                    else
+                    {
+                        createFile = true;
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("chess.chessdat already exists in this location. This game cannot be replayed.", "File System Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoginVariables.replayAvailable = false;
+                }
+            }
+            else
+            {
+                createFile = true;
+            }
+
+            if (createFile)
+            {
+                FileStream stream = new FileStream("chess.chessdat", FileMode.Create, FileAccess.Write);
+                StreamWriter writer = new StreamWriter(stream);
+                writer.WriteLine("aef769c0-5207-4b29-b38a-f1209252e9bb");
+                writer.Close();
+                stream.Close();
+            }
+        }
+
+        public static void AlterMainGameState(string hideOrShow)
+        {
+            if (LoginVariables.mainGame == null)
+                LoginVariables.mainGame = new MainGame();
+            if (hideOrShow == "show")
+                LoginVariables.mainGame.Show();
+            else
+                LoginVariables.mainGame.Hide();
+        }
+
+        public static void ExitProgram()
+        {
+            Environment.Exit(0);
         }
 
         private void ConnectButton_Click(object sender, EventArgs e)
@@ -31,6 +90,7 @@ namespace Chess
 
                 bool whiteChecked = WhiteRadio.Checked;
                 bool blackChecked = BlackRadio.Checked;
+
                 string player = "";
                 if (whiteChecked)
                 {
@@ -53,12 +113,22 @@ namespace Chess
                 }
                 else
                 {
+                    ConnectButton.Enabled = false;
+                    IPBox1.Enabled = false;
+                    IPBox2.Enabled = false;
+                    IPBox3.Enabled = false;
+                    IPBox4.Enabled = false;
+                    PortBox.Enabled = false;
+                    NameBox.Enabled = false;
+                    WhiteRadio.Enabled = false;
+                    BlackRadio.Enabled = false;
                     MainGame.portNumber /= 10;
                     MainGame.playerState = player;
                     MainGame.gameStart = 1;
 
-                    MainGame main = new MainGame();
-                    main.Show();
+                    if (LoginVariables.mainGame == null)
+                        LoginVariables.mainGame = new MainGame();
+                    LoginVariables.mainGame.Show();
                 }
             }
             else
@@ -108,14 +178,18 @@ namespace Chess
                 BlackSelect2.Enabled = false;
                 portTextBox.Enabled = false;
                 PortForwardInfoButton.Enabled = false;
+                WhiteSelect2.Enabled = false;
+                BlackSelect2.Enabled = false;
 
                 MainGame.playerState = player;
                 pleaseWaitLabel.Show();
 
                 await PutTaskDelay();
 
-                MainGame main = new MainGame();
-                main.Show();
+                if (LoginVariables.mainGame == null)
+                    LoginVariables.mainGame = new MainGame();
+                LoginVariables.mainGame.Show();
+                LoginVariables.mainGame.Hide();
             }
         }
 
@@ -127,18 +201,14 @@ namespace Chess
         public static void HideLogin()
         {
             Login l = new Login();
-            l.HideMe();
-        }
-
-        private void HideMe()
-        {
-            this.WindowState = FormWindowState.Minimized;
-            this.ShowInTaskbar = false;
-            this.Visible = false;
+            l.WindowState = FormWindowState.Minimized;
+            l.ShowInTaskbar = false;
+            l.Visible = false;
         }
 
         private void HostSelectButton_Click(object sender, EventArgs e)
         {
+            ipInformationLabel.Text = GetIPAddress();
             WhiteSelect2.TabStop = false;
             BlackSelect2.TabStop = false;
             pictureBox2.Hide();
@@ -146,12 +216,12 @@ namespace Chess
             ClientSelectButton.Hide();
             HostSelectButton.Hide();
             pleaseWaitLabel.Hide();
-            ipInformationLabel.Text = GetIPAddress();
             MainGame.serverState = 1;
         }
 
         private void ClientSelectButton_Click(object sender, EventArgs e)
         {
+            ipInformationLabel.Text = GetIPAddress();
             WhiteRadio.TabStop = false;
             BlackRadio.TabStop = false;
             ipLabel.Hide();
@@ -177,24 +247,69 @@ namespace Chess
         static string GetIPAddress()
         {
             String address = "";
-            WebRequest request = WebRequest.Create("http://checkip.dyndns.org/");
-            using (WebResponse response = request.GetResponse())
-            using (StreamReader stream = new StreamReader(response.GetResponseStream()))
+            try
             {
-                address = stream.ReadToEnd();
+                WebRequest request = WebRequest.Create("http://checkip.dyndns.org/");
+                using (WebResponse response = request.GetResponse())
+                using (StreamReader stream = new StreamReader(response.GetResponseStream()))
+                {
+                    address = stream.ReadToEnd();
+                }
+
+                int first = address.IndexOf("Address: ") + 9;
+                int last = address.LastIndexOf("</body>");
+                address = address.Substring(first, last - first);
+
+                int isDotPresent = address.IndexOf('.');
+                string[] createdIP = null;
+                if ((isDotPresent != -1) && (isDotPresent != 0))
+                    createdIP = address.Split('.').ToArray();
+
+                int createdIPLength = createdIP.Length;
+
+                if (createdIPLength == 4)
+                {
+                    string address1 = createdIP[0];
+                    string address2 = createdIP[1];
+                    string address3 = createdIP[2];
+                    string address4 = createdIP[3];
+                    int testAddress = 0;
+
+                    if (!(int.TryParse(address1, out testAddress) && int.TryParse(address2, out testAddress) && int.TryParse(address3, out testAddress) && int.TryParse(address4, out testAddress)))
+                        address = "Error";
+                }
+                else
+                    address = "Error";
             }
-
-            int first = address.IndexOf("Address: ") + 9;
-            int last = address.LastIndexOf("</body>");
-            address = address.Substring(first, last - first);
-
+            catch(Exception)
+            {
+                address = "Error";
+            }
             return address;
         }
-
         private void PortForwardInfoButton_Click(object sender, EventArgs e)
         {
-            string hostName = Dns.GetHostName();
-            MessageBox.Show("Private IP Address: " + Dns.GetHostEntry(hostName).AddressList[2].ToString(), "Port Forwarding Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            try
+            {
+                string hostName;
+                using (Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, 0))
+                {
+                    socket.Connect("8.8.8.8", 65530);
+                    IPEndPoint endPoint = socket.LocalEndPoint as IPEndPoint;
+                    hostName = endPoint.Address.ToString();
+                }
+
+                MessageBox.Show("Private IP Address: " + hostName, "Port Forwarding Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Information Unavailable", "Network Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ExitProgram();
         }
     }
 }

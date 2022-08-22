@@ -190,10 +190,10 @@ namespace Chess
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(19, 133);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(334, 26);
+            this.label7.Size = new System.Drawing.Size(356, 26);
             this.label7.TabIndex = 15;
-            this.label7.Text = "Colour You Wish to Play With: (Please note: if you and your opponent\r\nselect the " +
-    "same colour, the sides will be chosen at random)\r\n";
+            this.label7.Text = "Colour with which you wish to play: (Please note: if you and your opponent\r\nselec" +
+    "t the same colour, the sides will be chosen at random)\r\n";
             // 
             // ConnectButton
             // 
@@ -314,10 +314,10 @@ namespace Chess
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(16, 107);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(334, 26);
+            this.label11.Size = new System.Drawing.Size(356, 26);
             this.label11.TabIndex = 29;
-            this.label11.Text = "Colour You Wish to Play With: (Please note: if you and your opponent\r\nselect the " +
-    "same colour, the sides will be chosen at random)\r\n";
+            this.label11.Text = "Colour with which you wish to play: (Please note: if you and your opponent\r\nselec" +
+    "t the same colour, the sides will be chosen at random)\r\n";
             // 
             // WhiteSelect2
             // 
@@ -410,6 +410,7 @@ namespace Chess
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login";
             this.Text = "Chess - Login";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);

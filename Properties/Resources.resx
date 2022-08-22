@@ -175,4 +175,52 @@
   <data name="chessHelp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\chessHelp.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Chess_Piece_Move" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Chess_Piece_Move.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Chess_Win_Sound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Chess_Win_Sound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Chess_Draw_Sound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Chess_Draw_Sound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Chess_Lose_Sound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Chess_Lose_Sound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="chess_bishop_black_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chess_bishop_black_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chess_bishop_white_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chess_bishop_white_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chess_king_black_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chess_king_black_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chess_king_white_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chess_king_white_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chess_knight_black_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chess_knight_black_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chess_knight_white_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chess_knight_white_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chess_pawn_black_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chess_pawn_black_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chess_pawn_white_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chess_pawn_white_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chess_queen_black_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chess_queen_black_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chess_queen_white_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chess_queen_white_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chess_rook_black_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chess_rook_black_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chess_rook_white_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chess_rook_white_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
