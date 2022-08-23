@@ -34,6 +34,8 @@ namespace Chess
                 return;
             }
 
+            textBox2.Text = "";
+
             SetTextBox("You: " + textData, true);
             m.SendData("msg~" + MainGame.name + ": " + textData, false);
         }

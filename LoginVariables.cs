@@ -40,8 +40,6 @@ namespace Chess
         public static UInt32[] imageBytes = new UInt32[6];
         public static List<byte[]> savedBytesList = new List<byte[]>();
 
-        public static bool replayAvailable = true;
-
         public static int[,] coloursArray = {
 {171,109,7},
 {31,248,240},

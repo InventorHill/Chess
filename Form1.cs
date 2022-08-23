@@ -19,14 +19,6 @@ namespace Chess
 {
     public partial class MainGame : Form
     {
-        bool startReplay = true;
-
-        bool replayClicked = false;
-        bool replaySuspended = false;
-        bool opponentReplay = false;
-
-        public static bool replaying = false;
-
         bool waitForMoreData = false;
         bool saving = false;
         bool checkingCheck = false;
@@ -99,7 +91,6 @@ namespace Chess
         public static string ipAddress = "";
         public static int portNumber = 0;
         public static string playerState = "";
-        public static int moveAllowed = 0;
         public static string changePieceAllowed = "";
         public int moveInProgress = 0;
         public string moveCoordinates = "";
@@ -110,6 +101,30 @@ namespace Chess
         string[] oppPieces = new string[16];
         public static string opponentName = "";
         public static int connectionStarted = 0;
+
+        static bool[] enabledButtons = null;
+
+        static bool _moveAllowed;
+
+        public static bool moveAllowed
+        {
+            get
+            {
+                return _moveAllowed;
+            }
+            set
+            {
+                _moveAllowed = value;
+
+                if (buttonArray != null)
+                {
+                    foreach (Button button in buttonArray)
+                    {
+                        button.Enabled = button.Name.Length == 2 ? _moveAllowed : button.Enabled;
+                    }
+                }
+            }
+        }
         
         public MainGame()
         {
@@ -120,6 +135,8 @@ namespace Chess
             {
                 element.Enabled = false;
             }
+
+            enabledButtons = new bool[buttonArray.Length];
 
             if ((serverState == 0) && (connectionStarted == 0))
             {
@@ -1239,9 +1256,6 @@ namespace Chess
         }
         private void disconnect_button_Click(object sender, EventArgs e)
         {
-            if (replaying)
-                return;
-
             if (LoginVariables.enableDraw)
             {
                 DialogResult result = MessageBox.Show("Are you sure you want to declare a draw? The game cannot be started again from this current position", "Disconnect Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -1256,7 +1270,7 @@ namespace Chess
 
         private void chat_button_Click(object sender, EventArgs e)
         {
-            if (gameStart == 0 || replaying)
+            if (gameStart == 0)
                 return;
 
             if (chat.IsDisposed)
@@ -2081,12 +2095,14 @@ namespace Chess
             return legal;
         }
 
-        private void SwitchArrays()
+        private string SwitchArrays()
         {
             staticOpponentPieces.CopyTo(oppPieces, 0);
             staticPieces.CopyTo(pieces, 0);
             pieces.CopyTo(staticOpponentPieces, 0);
             oppPieces.CopyTo(staticPieces, 0);
+
+            return string.Join("£", staticOpponentPieces);
         }
 
         private string CheckIfInCheck(string oursOrTheirs, bool changeCheckVals)
@@ -2140,9 +2156,10 @@ namespace Chess
             if (oursOrTheirs != "king")
                 moveInProgress = Int32.Parse(opp_Piece_Pos);
             else
-                moveInProgress -= (moveInProgress / 100) * 100;
+                moveInProgress -= (moveInProgress / 100) * 100; // Knocks first two digits to 0
 
-            int constMoveInProgress = moveInProgress;
+            int mainMoveInProgress = moveInProgress;
+            int mainMoveInProgressOrig = moveInProgress;
             int checkTotalPrivate = 0;
             int safety = 0;
 
@@ -2155,20 +2172,21 @@ namespace Chess
 
                         if (moveInProgress < 80)
                         {
-                            SwitchArrays();
+                            testPieces = SwitchArrays();
                             if (!testPieces.Contains(":" + (moveInProgress + 10).ToString() + ":"))
                             {
                                 safety = 1;
                                 change = 1;
-                                moveInProgress = constMoveInProgress += 10;
+                                mainMoveInProgress += 10;
+                                moveInProgress = mainMoveInProgress;
                             }
                             else
                             {
-                                moveInProgress = constMoveInProgress;
+                                moveInProgress = mainMoveInProgress;
                                 checkIfUp = 1;
                                 falseCheckTotal++;
                             }
-                            SwitchArrays();
+                            testPieces = SwitchArrays();
                         }
                         else
                         {
@@ -2181,20 +2199,21 @@ namespace Chess
 
                         if (((moveInProgress - ((moveInProgress / 10) * 10)) < 8) && (moveInProgress < 80))
                         {
-                            SwitchArrays();
+                            testPieces = SwitchArrays();
                             if (!testPieces.Contains(":" + (moveInProgress + 11).ToString() + ":"))
                             {
                                 safety = 2;
                                 change = 1;
-                                moveInProgress = constMoveInProgress += 11;
+                                mainMoveInProgress += 11;
+                                moveInProgress = mainMoveInProgress;
                             }
                             else
                             {
-                                moveInProgress = constMoveInProgress;
+                                moveInProgress = mainMoveInProgress;
                                 checkIfUpRight = 1;
                                 falseCheckTotal++;
                             }
-                            SwitchArrays();
+                            testPieces = SwitchArrays();
                         }
                         else
                         {
@@ -2207,20 +2226,21 @@ namespace Chess
 
                         if ((moveInProgress - ((moveInProgress / 10) * 10)) < 8)
                         {
-                            SwitchArrays();
+                            testPieces = SwitchArrays();
                             if (!testPieces.Contains(":" + (moveInProgress + 1).ToString() + ":"))
                             {
                                 safety = 3;
                                 change = 1;
-                                moveInProgress = constMoveInProgress += 1;
+                                mainMoveInProgress += 1;
+                                moveInProgress = mainMoveInProgress;
                             }
                             else
                             {
-                                moveInProgress = constMoveInProgress;
+                                moveInProgress = mainMoveInProgress;
                                 checkIfRight = 1;
                                 falseCheckTotal++;
                             }
-                            SwitchArrays();
+                            testPieces = SwitchArrays();
                         }
                         else
                         {
@@ -2233,20 +2253,21 @@ namespace Chess
 
                         if (((moveInProgress - ((moveInProgress / 10) * 10)) < 8) && (moveInProgress > 20))
                         {
-                            SwitchArrays();
+                            testPieces = SwitchArrays();
                             if (!testPieces.Contains(":" + (moveInProgress - 9).ToString() + ":"))
                             {
                                 safety = 4;
                                 change = 1;
-                                moveInProgress = constMoveInProgress -= 9;
+                                mainMoveInProgress -= 9;
+                                moveInProgress = mainMoveInProgress;
                             }
                             else
                             {
-                                moveInProgress = constMoveInProgress;
+                                moveInProgress = mainMoveInProgress;
                                 checkIfDownRight = 1;
                                 falseCheckTotal++;
                             }
-                            SwitchArrays();
+                            testPieces = SwitchArrays();
                         }
                         else
                         {
@@ -2259,20 +2280,21 @@ namespace Chess
 
                         if (moveInProgress > 20)
                         {
-                            SwitchArrays();
+                            testPieces = SwitchArrays();
                             if (!testPieces.Contains(":" + (moveInProgress - 10).ToString() + ":"))
                             {
                                 safety = 5;
                                 change = 1;
-                                moveInProgress = constMoveInProgress -= 10;
+                                mainMoveInProgress -= 10;
+                                moveInProgress = mainMoveInProgress;
                             }
                             else
                             {
-                                moveInProgress = constMoveInProgress;
+                                moveInProgress = mainMoveInProgress;
                                 checkIfDown = 1;
                                 falseCheckTotal++;
                             }
-                            SwitchArrays();
+                            testPieces = SwitchArrays();
                         }
                         else
                         {
@@ -2285,20 +2307,21 @@ namespace Chess
 
                         if (((moveInProgress - ((moveInProgress / 10) * 10)) > 1) && (moveInProgress > 20))
                         {
-                            SwitchArrays();
+                            testPieces = SwitchArrays();
                             if (!testPieces.Contains(":" + (moveInProgress - 11).ToString() + ":"))
                             {
                                 safety = 6;
                                 change = 1;
-                                moveInProgress = constMoveInProgress -= 11;
+                                mainMoveInProgress -= 11;
+                                moveInProgress = mainMoveInProgress;
                             }
                             else
                             {
-                                moveInProgress = constMoveInProgress;
+                                moveInProgress = mainMoveInProgress;
                                 checkIfDownLeft = 1;
                                 falseCheckTotal++;
                             }
-                            SwitchArrays();
+                            testPieces = SwitchArrays();
                         }
                         else
                         {
@@ -2311,20 +2334,21 @@ namespace Chess
 
                         if ((moveInProgress - ((moveInProgress / 10) * 10)) > 1)
                         {
-                            SwitchArrays();
+                            testPieces = SwitchArrays();
                             if (!testPieces.Contains(":" + (moveInProgress - 1).ToString() + ":"))
                             {
                                 safety = 7;
                                 change = 1;
-                                moveInProgress = constMoveInProgress -= 1;
+                                mainMoveInProgress -= 1;
+                                moveInProgress = mainMoveInProgress;
                             }
                             else
                             {
-                                moveInProgress = constMoveInProgress;
+                                moveInProgress = mainMoveInProgress;
                                 checkIfLeft = 1;
                                 falseCheckTotal++;
                             }
-                            SwitchArrays();
+                            testPieces = SwitchArrays();
                         }
                         else
                         {
@@ -2337,20 +2361,21 @@ namespace Chess
 
                         if (((moveInProgress - ((moveInProgress / 10) * 10)) > 1) && (moveInProgress < 80))
                         {
-                            SwitchArrays();
+                            testPieces = SwitchArrays();
                             if (!testPieces.Contains(":" + (moveInProgress + 9).ToString() + ":"))
                             {
                                 safety = 8;
                                 change = 1;
-                                moveInProgress = constMoveInProgress += 9;
+                                mainMoveInProgress += 9;
+                                moveInProgress = mainMoveInProgress;
                             }
                             else
                             {
-                                moveInProgress = constMoveInProgress;
+                                moveInProgress = mainMoveInProgress;
                                 checkIfUpLeft = 1;
                                 falseCheckTotal++;
                             }
-                            SwitchArrays();
+                            testPieces = SwitchArrays();
                         }
                         else
                         {
@@ -2364,10 +2389,10 @@ namespace Chess
                 for (int j = 0; j < 16; j++)
                 {
                     cur_Piece = oppPieces[j].Split(':').ToArray();
-                    string s = cur_Piece[3];
-                    if ((s != "99") && (change == 1))
+                    int s = Int32.Parse(cur_Piece[3]);
+                    if ((s != 99) && (change == 1))
                     {
-                        moveInProgress += Int32.Parse(s) * 100;
+                        moveInProgress += s * 100;
                         checkingIfInCheck = 1;
                         checkingCheck = false;
 
@@ -2384,8 +2409,11 @@ namespace Chess
                             case 8: checkIfUpLeft += TestMoveLegality(1, checkingOurs); break;
                         }
 
+                        checkingCheck = true;
+
                         checkingIfInCheck = 0;
-                        moveInProgress = constMoveInProgress;
+                        mainMoveInProgress = mainMoveInProgressOrig;
+                        moveInProgress = mainMoveInProgress;
                     }
                 }
                 change = 0;
@@ -2394,24 +2422,23 @@ namespace Chess
             restoreStaticPieces = true;
 
             LoginVariables.setCheckValues = false;
-            if (check > 0)
-                check = 1;
-            if (checkIfUp > 0)
-                checkIfUp = 1;
-            if (checkIfUpRight > 0)
-                checkIfUpRight = 1;
-            if (checkIfRight > 0)
-                checkIfRight = 1;
-            if (checkIfDownRight > 0)
-                checkIfDownRight = 1;
-            if (checkIfDown > 0)
-                checkIfDown = 1;
-            if (checkIfDownLeft > 0)
-                checkIfDownLeft = 1;
-            if (checkIfLeft > 0)
-                checkIfLeft = 1;
-            if (checkIfUpLeft > 0)
-                checkIfUpLeft = 1;
+            check = check > 0 ? 1 : 0;
+            
+            checkIfUp = checkIfUp > 0 ? 1 : 0;
+            
+            checkIfUpRight = checkIfUpRight > 0 ? 1 : 0;
+            
+            checkIfRight = checkIfRight > 0 ? 1 : 0;
+            
+            checkIfDownRight = checkIfDownRight > 0 ? 1 : 0;
+            
+            checkIfDown = checkIfDown > 0 ? 1 : 0;
+            
+            checkIfDownLeft = checkIfDownLeft > 0 ? 1 : 0;
+            
+            checkIfLeft = checkIfLeft > 0 ? 1 : 0;
+            
+            checkIfUpLeft = checkIfUpLeft > 0 ? 1 : 0;
 
             checkTotalPrivate = check + checkIfUp + checkIfUpRight + checkIfRight + checkIfDownRight + checkIfDown + checkIfDownLeft + checkIfLeft + checkIfUpLeft;
 
@@ -2462,7 +2489,7 @@ namespace Chess
 
         private int TestMoveLegality(int isCheckInProgress, int checkingOurs)
         {
-            if ((moveAllowed == 1) || (checkingIfInCheck == 1))
+            if (moveAllowed || (checkingIfInCheck == 1))
             {
                 int legal = 0;
                 string testingMove = Convert.ToString(moveInProgress);
@@ -2503,12 +2530,6 @@ namespace Chess
 
         private void test_move()
         {
-            if (replaying)
-            {
-                moveInProgress = 0;
-                return;
-            }
-
             if (saving)
             {
                 MessageBox.Show("Cannot perform move whilst save is in progress", "Save Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -2994,7 +3015,7 @@ namespace Chess
                     MessageBox.Show("Please select the piece to which you wish to promote your pawn");
                     pawnChange = 1;
                     changePieceAllowed = pieceName + ":" + buttonArray[nex_position].Name + ":" + nextPlace;
-                    moveAllowed = 0;
+                    moveAllowed = false;
                     return;
                 }
 
@@ -3097,22 +3118,21 @@ namespace Chess
             if (gameStart == 0)
                 return;
 
-            AddToReplayFile(moveInProgress);
-
             string messageBoxInformation = "";
             int moveInProgressBackup = moveInProgress;
             moveInProgress = 0;
+
+            LoginVariables.Player1_Current.CopyTo(staticPieces, 0);
+            LoginVariables.Player2_Current.CopyTo(staticOpponentPieces, 0);
 
             staticOpponentPieces.CopyTo(oppPieces, 0);
             staticPieces.CopyTo(pieces, 0);
 
             string dataToSendToOpponent = CheckIfInCheck("theirs", true);
+
             LoginVariables.opponentCheckArray = new int[0];
 
             dataToSendToOpponent = CheckStalemateAndCheckmate(dataToSendToOpponent, "theirs");
-
-            LoginVariables.Player1_Current.CopyTo(staticPieces, 0);
-            LoginVariables.Player2_Current.CopyTo(staticOpponentPieces, 0);
 
             Array.Resize(ref staticPieces, 16);
             Array.Resize(ref staticOpponentPieces, 16);
@@ -3120,7 +3140,7 @@ namespace Chess
             LoginVariables.opponentCheckArray = new int[0];
             LoginVariables.opponentCheckArrayLock = false;
             
-            moveAllowed = 0;
+            moveAllowed = false;
             moveInProgress = 0;
 
             staticOpponentPieces.CopyTo(oppPieces, 0);
@@ -3150,7 +3170,6 @@ namespace Chess
             dataToSendToOpponent += "~" + moveInProgress;
             SendData(dataToSendToOpponent, true);
             saveGameButton.Enabled = true;
-            replayGameButton.Enabled = true;
             moveInProgress = 0;
 
             string dataSent = dataToSendToOpponent[0].ToString() + dataToSendToOpponent[1].ToString() + dataToSendToOpponent[2].ToString() + dataToSendToOpponent[3].ToString();
@@ -3170,14 +3189,13 @@ namespace Chess
                     chessWinSound.Play();
                     foreach (Button element in buttonArray)
                     {
-                        if ((element.Name != "disconnect_button") && (element.Name != "chat_button") && (element.Name != "replayGameButton"))
+                        if ((element.Name != "disconnect_button") && (element.Name != "chat_button"))
                             element.Enabled = false;
                         else
                             element.Enabled = true;
                     }
                     disconnect_button.Text = "Disconnect";
                     LoginVariables.enableDraw = false;
-                    RenameReplayFile();
                 }
 
                 MessageBox.Show(messageBoxInformation);
@@ -3369,7 +3387,7 @@ namespace Chess
             }
         }
 
-        private static void CreatePlayerCurrentTXTs(bool copyToLoginVariables)
+        private static void SavePlayerPositions(bool copyToLoginVariables)
         {
             string data = "";
 
@@ -3403,26 +3421,22 @@ namespace Chess
 
         private void knightSelectButton_Click(object sender, EventArgs e)
         {
-            if (!replaying)
-                return_Piece("knight");
+            return_Piece("knight");
         }
 
         private void rookSelectButton_Click(object sender, EventArgs e)
         {
-            if (!replaying)
-                return_Piece("rook");
+            return_Piece("rook");
         }
 
         private void bishopSelectButton_Click(object sender, EventArgs e)
         {
-            if (!replaying)
-                return_Piece("bishop");
+            return_Piece("bishop");
         }
 
         private void queenSelectButton_Click(object sender, EventArgs e)
         {
-            if (!replaying)
-                return_Piece("queen");
+            return_Piece("queen");
         }
 
         private void MainGame_Load(object sender, EventArgs e)
@@ -3432,9 +3446,6 @@ namespace Chess
 
         private void saveGameButton_Click(object sender, EventArgs e)
         {
-            if (replaying)
-                return;
-
             if (moveInProgress == 0)
             {
                 try
@@ -3472,7 +3483,7 @@ namespace Chess
                     string[] dataToSave = new string[10];
                     dataToSave[0] = playerState;
 
-                    if (moveAllowed == 1)
+                    if (moveAllowed)
                         dataToSave[1] = playerState;
                     else if (playerState == "white")
                         dataToSave[1] = "black";
@@ -3608,11 +3619,11 @@ namespace Chess
                         LoginVariables.dataOppMoveInProgress = otherXs;
                         LoginVariables.oppPreviousPos = Int32.Parse(otherXs[0].ToString() + otherXs[1].ToString());
                         LoginVariables.oppCurrentPos = Int32.Parse(otherXs[2].ToString() + otherXs[3].ToString());
-                        moveAllowed = 1;
+                        moveAllowed = true;
                     }
                     else
                     {
-                        moveAllowed = 0;
+                        moveAllowed = false;
                     }
                 }
                 else
@@ -3644,11 +3655,11 @@ namespace Chess
                         LoginVariables.dataOppMoveInProgress = otherXs;
                         LoginVariables.oppPreviousPos = Int32.Parse(otherXs[0].ToString() + otherXs[1].ToString());
                         LoginVariables.oppCurrentPos = Int32.Parse(otherXs[2].ToString() + otherXs[3].ToString());
-                        moveAllowed = 1;
+                        moveAllowed = true;
                     }
                     else
                     {
-                        moveAllowed = 0;
+                        moveAllowed = false;
                     }
                 }
 
@@ -3707,8 +3718,6 @@ namespace Chess
 
         private void loadGameButton_Click(object sender, EventArgs e)
         {
-            if (replaying)
-                return;
             try
             {
                 string fullPath = "";
@@ -3765,9 +3774,6 @@ namespace Chess
 
         private void concedeButton_Click(object sender, EventArgs e)
         {
-            if (replaying)
-                return;
-
             DialogResult concedeResult = MessageBox.Show("Are you sure you want to resign? The game cannot be started again from its current position.", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (concedeResult == DialogResult.Yes)
             {
@@ -3775,14 +3781,13 @@ namespace Chess
                 SendData("drw~", false);
                 foreach (Button element in buttonArray)
                 {
-                    if ((element.Name != "disconnect_button") && (element.Name != "chat_button") && (element.Name != "replayGameButton"))
+                    if ((element.Name != "disconnect_button") && (element.Name != "chat_button"))
                         element.Enabled = false;
                     else
                         element.Enabled = true;
                 }
                 disconnect_button.Text = "Disconnect";
                 LoginVariables.enableDraw = false;
-                RenameReplayFile();
             }
         }
 
@@ -3885,7 +3890,6 @@ namespace Chess
                         SendData("dqs~", false);
                     }
                     saveGameButton.Enabled = true;
-                    replayGameButton.Enabled = true;
                     return;
                 case "dqs~":
                     MessageBox.Show("The request has been denied", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -3893,7 +3897,6 @@ namespace Chess
                 case "aqs~":
                     LoadGameFromFile(LoginVariables.savedData);
                     saveGameButton.Enabled = true;
-                    replayGameButton.Enabled = true;
                     return;
                 case "lve~":
                     LoginVariables.exiting = true;
@@ -3915,18 +3918,6 @@ namespace Chess
                 case "clr~":
                     System.Threading.Thread.Sleep(1500);
 
-                    foreach (Button element in buttonArray)
-                    {
-                        element.Enabled = true;
-                    }
-
-                    knightSelectButton.Enabled = false;
-                    rookSelectButton.Enabled = false;
-                    bishopSelectButton.Enabled = false;
-                    queenSelectButton.Enabled = false;
-                    saveGameButton.Enabled = false;
-                    replayGameButton.Enabled = false;
-                    loadGameButton.Enabled = true;
                     gameStart = 1;
                     bothPieces = oppData.Split('~').ToArray();
                     playerState = bothPieces[1];
@@ -3935,7 +3926,7 @@ namespace Chess
 
                     if (playerState == "white")
                     {
-                        moveAllowed = 1;
+                        moveAllowed = true;
 
                         pawnBox.Image = Chess.Properties.Resources.chess_pawn_white_large;
                         knightBox.Image = Chess.Properties.Resources.chess_knight_white_large;
@@ -3951,7 +3942,7 @@ namespace Chess
                     }
                     else
                     {
-                        moveAllowed = 0;
+                        moveAllowed = false;
 
                         pawnBox.Image = Chess.Properties.Resources.chess_pawn_black_large;
                         knightBox.Image = Chess.Properties.Resources.chess_knight_black_large;
@@ -3965,6 +3956,18 @@ namespace Chess
                         oppBishopBox.Image = Chess.Properties.Resources.chess_bishop_white_large;
                         oppQueenBox.Image = Chess.Properties.Resources.chess_queen_white_large;
                     }
+
+                    knightSelectButton.Enabled = false;
+                    rookSelectButton.Enabled = false;
+                    bishopSelectButton.Enabled = false;
+                    queenSelectButton.Enabled = false;
+                    saveGameButton.Enabled = false;
+                    loadGameButton.Enabled = true;
+
+                    chat_button.Enabled = true;
+                    concedeButton.Enabled = true;
+                    disconnect_button.Enabled = true;
+                    cancel_button.Enabled = true;
 
                     SetUpBoard(playerState, true);
 
@@ -4008,18 +4011,6 @@ namespace Chess
                         return;
                     }
 
-                    foreach (Button element in buttonArray)
-                    {
-                        element.Enabled = true;
-                    }
-
-                    knightSelectButton.Enabled = false;
-                    rookSelectButton.Enabled = false;
-                    bishopSelectButton.Enabled = false;
-                    queenSelectButton.Enabled = false;
-                    saveGameButton.Enabled = false;
-                    replayGameButton.Enabled = false;
-                    loadGameButton.Enabled = true;
                     this.FindForm().Text = "Chess - " + name + " vs " + opponentName;
                     Login.AlterMainGameState("show");
 
@@ -4033,17 +4024,29 @@ namespace Chess
                         {
                             SendData("clr~white~" + name, false);
                             playerState = "black";
-                            moveAllowed = 0;
                         }
                         else
                         {
                             SendData("clr~black~" + name, false);
                             playerState = "white";
-                            moveAllowed = 1;
                         }
                     }
                     else
                         SendData("clr~" + bothPieces[2] + "~" + name, false);
+
+                    moveAllowed = playerState == "white";
+
+                    knightSelectButton.Enabled = false;
+                    rookSelectButton.Enabled = false;
+                    bishopSelectButton.Enabled = false;
+                    queenSelectButton.Enabled = false;
+                    saveGameButton.Enabled = false;
+                    loadGameButton.Enabled = true;
+
+                    chat_button.Enabled = true;
+                    concedeButton.Enabled = true;
+                    disconnect_button.Enabled = true;
+                    cancel_button.Enabled = true;
 
                     SetUpBoard(playerState, true);
 
@@ -4102,8 +4105,6 @@ namespace Chess
                     System.Threading.Thread.Sleep(1500);
                     loadGameButton.Enabled = false;
                     saveGameButton.Enabled = true;
-                    replayGameButton.Enabled = true;
-                    replayGameButton.Enabled = true;
                     bothPieces = oppData.Split('~').ToArray();
                     pieces = bothPieces[2].Split(';').ToArray();
                     oppPieces = bothPieces[1].Split(';').ToArray();
@@ -4111,18 +4112,17 @@ namespace Chess
                     Array.Resize(ref pieces, 16);
                     string otherXs = bothPieces[3];
                     LoginVariables.dataOppMoveInProgress = otherXs;
-                    AddToReplayFile(9999 - Int32.Parse(otherXs));
+
                     oppCurX = otherXs[0];
                     oppNextX = otherXs[2];
                     chessPieceMoveSound.Play();
-                    moveAllowed = 1;
+                    moveAllowed = true;
                     LoginVariables.oppPreviousPos = Int32.Parse(otherXs[0].ToString() + otherXs[1].ToString());
                     LoginVariables.oppCurrentPos = Int32.Parse(otherXs[2].ToString() + otherXs[3].ToString());
                     break;
                 case "chk~":
                     System.Threading.Thread.Sleep(1500);
                     saveGameButton.Enabled = true;
-                    replayGameButton.Enabled = true;
                     loadGameButton.Enabled = false;
                     bothPieces = oppData.Split('~').ToArray();
                     string[] bothPieces1 = bothPieces[1].Split(':').ToArray();
@@ -4142,8 +4142,6 @@ namespace Chess
                     Array.Resize(ref pieces, 16);
                     string otherX = bothPieces[4];
 
-                    AddToReplayFile(9999 - Int32.Parse(otherX));
-
                     LoginVariables.dataOppMoveInProgress = otherX;
                     oppCurX = otherX[0];
                     oppNextX = otherX[2];
@@ -4152,7 +4150,7 @@ namespace Chess
                         MessageBox.Show("Check");
 
                     chessPieceMoveSound.Play();
-                    moveAllowed = 1;
+                    moveAllowed = true;
                     LoginVariables.oppPreviousPos = Int32.Parse(otherX[0].ToString() + otherX[1].ToString());
                     LoginVariables.oppCurrentPos = Int32.Parse(otherX[2].ToString() + otherX[3].ToString());
                     break;
@@ -4160,7 +4158,7 @@ namespace Chess
                     chessLoseSound.Play();
                     foreach (Button element in buttonArray)
                     {
-                        if ((element.Name != "disconnect_button") && (element.Name != "chat_button") && (element.Name != "replayGameButton"))
+                        if ((element.Name != "disconnect_button") && (element.Name != "chat_button"))
                             element.Enabled = false;
                         else
                             element.Enabled = true;
@@ -4168,13 +4166,12 @@ namespace Chess
                     disconnect_button.Text = "Disconnect";
                     MessageBox.Show("A stalemate has been declared, with " + opponentName + " the victor.");
                     LoginVariables.enableDraw = false;
-                    RenameReplayFile();
                     return;
                 case "chm~":
                     chessLoseSound.Play();
                     foreach (Button element in buttonArray)
                     {
-                        if ((element.Name != "disconnect_button") && (element.Name != "chat_button") && (element.Name != "replayGameButton"))
+                        if ((element.Name != "disconnect_button") && (element.Name != "chat_button"))
                             element.Enabled = false;
                         else
                             element.Enabled = true;
@@ -4182,21 +4179,19 @@ namespace Chess
                     disconnect_button.Text = "Disconnect";
                     MessageBox.Show("Checkmate has been declared, with " + opponentName + " the victor.");
                     LoginVariables.enableDraw = false;
-                    RenameReplayFile();
                     return;
                 case "drw~":
                     chessDrawSound.Play();
                     MessageBox.Show(opponentName + " has resigned. The game has now ended.");
                     foreach (Button element in buttonArray)
                     {
-                        if ((element.Name != "disconnect_button") && (element.Name != "chat_button") && (element.Name != "replayGameButton"))
+                        if ((element.Name != "disconnect_button") && (element.Name != "chat_button"))
                             element.Enabled = false;
                         else
                             element.Enabled = true;
                     }
                     disconnect_button.Text = "Disconnect";
                     LoginVariables.enableDraw = false;
-                    RenameReplayFile();
                     return;
                 case "dra~":
                     chessDrawSound.Play();
@@ -4205,12 +4200,12 @@ namespace Chess
                     LoginVariables.enableDraw = false;
                     foreach (Button element in buttonArray)
                     {
-                        if ((element.Name != "disconnect_button") && (element.Name != "chat_button") && (element.Name != "replayGameButton"))
+                        if ((element.Name != "disconnect_button") && (element.Name != "chat_button"))
                             element.Enabled = false;
                         else
                             element.Enabled = true;
                     }
-                    RenameReplayFile();
+
                     return;
                 case "ask~":
                     DialogResult drawResult = MessageBox.Show("Do you wish to accept a draw from " + opponentName + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -4219,7 +4214,7 @@ namespace Chess
                         chessDrawSound.Play();
                         foreach (Button element in buttonArray)
                         {
-                            if ((element.Name != "disconnect_button") && (element.Name != "chat_button") && (element.Name != "replayGameButton"))
+                            if ((element.Name != "disconnect_button") && (element.Name != "chat_button"))
                                 element.Enabled = false;
                             else
                                 element.Enabled = true;
@@ -4228,7 +4223,6 @@ namespace Chess
                         disconnect_button.Text = "Disconnect";
                         LoginVariables.enableDraw = false;
                         SendData("dra~", false);
-                        RenameReplayFile();
                     }
                     else
                     {
@@ -4237,20 +4231,6 @@ namespace Chess
                     return;
                 case "ndr~":
                     MessageBox.Show(opponentName + " has denied your request for a draw. The game will continue.");
-                    return;
-                case "rpl~":
-                    if (!replayClicked)
-                        MessageBox.Show(opponentName + " has begun to replay their game. All buttons have thus been disabled, except for the replay game button.", "Game State Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    replaying = true;
-                    opponentReplay = true;
-                    return;
-                case "drp~":
-                    if (!replayClicked)
-                    {
-                        MessageBox.Show(opponentName + " has finished replaying their game. All eligible buttons have now been enabled.", "Game State Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    opponentReplay = false;
-                    replaying = replayClicked || opponentReplay;
                     return;
                 default:
                     MessageBox.Show("Warning! Unknown data entering program! Security compromised! Program now exiting!", "Program Security Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -4284,211 +4264,6 @@ namespace Chess
             oppQueenLabel.Text = "x" + LoginVariables.oppNums[4].ToString();
         }
 
-        void RenameReplayFile()
-        {
-            if (!LoginVariables.replayAvailable)
-                return;
-
-            DialogResult result = MessageBox.Show("Do you wish to save the replay file?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.No)
-                return;
-
-            DateTime currentDateTime = DateTime.Now;
-            string newName = "Chess Replay - " + currentDateTime.ToLongDateString() + " @ " + currentDateTime.ToString("HH:mm:ss").Replace(':', ';');
-
-            bool continueTesting = true;
-            int num = 1;
-
-            while (continueTesting)
-            {
-                if (File.Exists(newName + ".chessdat"))
-                {
-                    if (newName[newName.Length - 1] == ')')
-                    {
-                        newName = newName.Substring(0, (newName.IndexOf('(') + 1));
-
-                        newName += num.ToString() + ")";
-                    }
-                    else
-                        newName += " (1)";
-
-                    num++;
-
-                    if(num == 501)
-                    {
-                        while (File.Exists(newName + ".chessdat"))
-                        {
-                            newName = Interaction.InputBox("Please enter a name for the replay file. If you do not wish to save it, leave the field blank and press OK.", "Rename Tool", "");
-                            if (newName == "")
-                            {
-                                File.Delete("chess.chessdat");
-                                return;
-                            }
-
-                            if (File.Exists(newName + ".chessdat"))
-                            {
-                                DialogResult dlgResult = MessageBox.Show("A file with that name already exists. Do you wish to delete it and replace it with this one?", "File System Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
-                                if (dlgResult == DialogResult.Yes)
-                                {
-                                    File.Delete(newName + ".chessdat");
-                                    break;
-                                }
-                            }
-                        }
-
-                        File.Move("chess.chessdat", (newName + ".chessdat"));
-                    }
-                }
-                else
-                    continueTesting = false;
-            }
-        }
-
-        void ReplayGame()
-        {
-            replaying = true;
-            replayClicked = true;
-            replayGameButton.Text = "Pause Replay";
-            string previousText = "";
-
-            if (startReplay)
-            {
-                SetUpBoard(playerState, false, false);
-                chessPieceMoveSound.PlaySync();
-                System.Threading.Thread.Sleep(500);
-                startReplay = false;
-            }
-
-            /*using (StreamReader reader = File.OpenText("chess.chessdat"))
-            {
-                bool continueRead = true;
-                bool first = true;
-                while (continueRead)
-                {
-                    if (replaySuspended)
-                    {
-                        replayGameButton.Text = "Resume Replay";
-                        while (replaySuspended)
-                        {
-                            System.Threading.Thread.Sleep(50);
-                        }
-                    }
-
-                    replayGameButton.Text = "Pause Replay";
-
-                    string readText = reader.ReadLine();
-                    int tryParse;
-                    if ((first && readText != "aef769c0-5207-4b29-b38a-f1209252e9bb") || (readText == "" && previousText.Length == 4) || readText == null)
-                        continueRead = false;
-                    else if (readText == "aef769c0-5207-4b29-b38a-f1209252e9bb" || readText == "" || !Int32.TryParse(readText, out tryParse) || readText.Length != 4)
-                    {
-                        //Do Nothing
-                    }
-                    else
-                    {
-                        Button firstButton = null;
-                        Button secondButton = null;
-                        string firstPos = "";
-                        string secondPos = "";
-                        int convertToInt = Int32.Parse(readText);
-                        string char0 = readText[0].ToString();
-                        string char1 = readText[1].ToString();
-                        string char2 = readText[2].ToString();
-                        string char3 = readText[3].ToString();
-
-                        for (int i = 0; i < 2; i++)
-                        {
-                            string charToReturn = "";
-                            int charX = i == 0 ? Int32.Parse(char0) : Int32.Parse(char2);
-
-                            switch (charX)
-                            {
-                                case 1: charToReturn = "A"; break;
-                                case 2: charToReturn = "B"; break;
-                                case 3: charToReturn = "C"; break;
-                                case 4: charToReturn = "D"; break;
-                                case 5: charToReturn = "E"; break;
-                                case 6: charToReturn = "F"; break;
-                                case 7: charToReturn = "G"; break;
-                                case 8: charToReturn = "H"; break;
-                            }
-
-                            if (i == 0)
-                                char0 = charToReturn;
-                            else
-                                char2 = charToReturn;
-                        }
-
-                        firstPos = char0 + char1;
-                        secondPos = char2 + char3;
-
-                        foreach (Button element in buttonArray)
-                        {
-                            if (element.Name == firstPos)
-                                firstButton = element;
-                            else if (element.Name == secondPos)
-                                secondButton = element;
-
-                            if ((firstButton != null) && (secondButton != null))
-                                break;
-                        }
-
-                        foreach(Button element in buttonArray)
-                        {
-                            if (element.Name == secondButton.Name)
-                            {
-                                element.Image = firstButton.Image;
-                                element.ImageAlign = ContentAlignment.MiddleCenter;
-                            }
-                            else if (element.Name == firstButton.Name)
-                                element.Image = null;
-                        }
-
-                        chessPieceMoveSound.PlaySync();
-                        System.Threading.Thread.Sleep(500);
-                    }
-                    first = false;
-                    previousText = readText;
-                }
-            }
-            
-            SetUpBoard(playerState, false);
-            chessPieceMoveSound.PlaySync();
-            SendData("drp~", false);
-            */
-            replayGameButton.Text = "Replay Game";
-            replaying = opponentReplay;
-            replayClicked = false;
-            startReplay = true;
-        }
-
-        private void replayGameButton_Click(object sender, EventArgs e)
-        {
-            if (!LoginVariables.replayAvailable)
-            {
-                MessageBox.Show("Game cannot be replayed", "File System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (replaying && replayClicked)
-                replaySuspended = !replaySuspended;
-            else
-            {
-                SendData("rpl~", false);
-                ReplayGame();
-            }
-        }
-
-        static void AddToReplayFile(int dataToSave)
-        {
-            if (!LoginVariables.replayAvailable)
-            {
-                return;
-            }
-
-            File.AppendAllText("chess.chessdat", Environment.NewLine + dataToSave.ToString());
-        }
-
         public static void SetUpBoard(string stateOfPlayer, bool createTXTs, bool copy = true)
         {
             if (gameStart == 0)
@@ -4501,7 +4276,7 @@ namespace Chess
             }
 
             if (createTXTs || !copy)
-                CreatePlayerCurrentTXTs(copy);
+                SavePlayerPositions(copy);
 
             int curPosition = -1;
 

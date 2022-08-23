@@ -130,7 +130,6 @@ namespace Chess
             this.loadGameButton = new System.Windows.Forms.Button();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.replayGameButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.transitionBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.transitionBoxNull)).BeginInit();
@@ -1264,7 +1263,7 @@ namespace Chess
             // 
             this.saveGameButton.Location = new System.Drawing.Point(44, 731);
             this.saveGameButton.Name = "saveGameButton";
-            this.saveGameButton.Size = new System.Drawing.Size(141, 38);
+            this.saveGameButton.Size = new System.Drawing.Size(204, 38);
             this.saveGameButton.TabIndex = 162;
             this.saveGameButton.Text = "Save Game";
             this.saveGameButton.UseVisualStyleBackColor = true;
@@ -1272,9 +1271,9 @@ namespace Chess
             // 
             // loadGameButton
             // 
-            this.loadGameButton.Location = new System.Drawing.Point(191, 731);
+            this.loadGameButton.Location = new System.Drawing.Point(268, 731);
             this.loadGameButton.Name = "loadGameButton";
-            this.loadGameButton.Size = new System.Drawing.Size(138, 38);
+            this.loadGameButton.Size = new System.Drawing.Size(206, 38);
             this.loadGameButton.TabIndex = 163;
             this.loadGameButton.Text = "Load Saved Game";
             this.loadGameButton.UseVisualStyleBackColor = true;
@@ -1298,16 +1297,6 @@ namespace Chess
             this.openFileDialog.RestoreDirectory = true;
             this.openFileDialog.Title = "Chess Game Load";
             // 
-            // replayGameButton
-            // 
-            this.replayGameButton.Location = new System.Drawing.Point(336, 731);
-            this.replayGameButton.Name = "replayGameButton";
-            this.replayGameButton.Size = new System.Drawing.Size(138, 38);
-            this.replayGameButton.TabIndex = 164;
-            this.replayGameButton.Text = "Replay Game";
-            this.replayGameButton.UseVisualStyleBackColor = true;
-            this.replayGameButton.Click += new System.EventHandler(this.replayGameButton_Click);
-            // 
             // MainGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1316,7 +1305,6 @@ namespace Chess
             this.BackgroundImage = global::Chess.Properties.Resources.wood_grain_effect_clipart;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(514, 781);
-            this.Controls.Add(this.replayGameButton);
             this.Controls.Add(this.loadGameButton);
             this.Controls.Add(this.saveGameButton);
             this.Controls.Add(this.queenLabel);
@@ -1542,7 +1530,6 @@ namespace Chess
         private System.Windows.Forms.Button loadGameButton;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
-        private System.Windows.Forms.Button replayGameButton;
     }
 }
 

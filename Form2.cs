@@ -22,46 +22,10 @@ namespace Chess
         {
             InitializeComponent();
 
-            bool createFile = false;
             if (LoginVariables.Player1_Current.Length != 16)
                 Array.Resize(ref LoginVariables.Player1_Current, 16);
             if (LoginVariables.Player2_Current.Length != 16)
                 Array.Resize(ref LoginVariables.Player2_Current, 16);
-
-            if (File.Exists("chess.chessdat"))
-            {
-                try
-                {
-                    string fakeGUID = File.ReadAllLines("chess.chessdat")[0].ToString();
-                    if (fakeGUID != "aef769c0-5207-4b29-b38a-f1209252e9bb")
-                    {
-                        MessageBox.Show("chess.chessdat already exists in this location. Some features may not be available.", "File System Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoginVariables.replayAvailable = false;
-                    }
-                    else
-                    {
-                        createFile = true;
-                    }
-                }
-                catch
-                {
-                    MessageBox.Show("chess.chessdat already exists in this location. This game cannot be replayed.", "File System Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoginVariables.replayAvailable = false;
-                }
-            }
-            else
-            {
-                createFile = true;
-            }
-
-            if (createFile)
-            {
-                FileStream stream = new FileStream("chess.chessdat", FileMode.Create, FileAccess.Write);
-                StreamWriter writer = new StreamWriter(stream);
-                writer.WriteLine("aef769c0-5207-4b29-b38a-f1209252e9bb");
-                writer.Close();
-                stream.Close();
-            }
         }
 
         public static void AlterMainGameState(string hideOrShow)
@@ -95,12 +59,12 @@ namespace Chess
                 if (whiteChecked)
                 {
                     player = "white";
-                    MainGame.moveAllowed = 1;
+                    MainGame.moveAllowed = true;
                 }
                 else if (blackChecked)
                 {
                     player = "black";
-                    MainGame.moveAllowed = 0;
+                    MainGame.moveAllowed = false;
                 }
 
                 if ((MainGame.name == "") || (IPBox1.Text == "") || (IPBox2.Text == "") || (IPBox3.Text == "") || (IPBox4.Text == "") || (MainGame.portNumber == 0) || (player == ""))
@@ -145,12 +109,12 @@ namespace Chess
             if (whiteChecked)
             {
                 player = "white";
-                MainGame.moveAllowed = 1;
+                MainGame.moveAllowed = true;
             }
             else if (blackChecked)
             {
                 player = "black";
-                MainGame.moveAllowed = 0;
+                MainGame.moveAllowed = false;
             }
 
             int portNumber = 0;

@@ -4,31 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C2EBF5BD-5D72-4BF0-BF26-E56EAA860884}</ProjectGuid>
+    <ProjectGuid>{2CF003E3-B160-4FF7-924F-B6E5CB3D9F1F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Chess</RootNamespace>
     <AssemblyName>Chess</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\Oscar Hill\Documents\Chess\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>2</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <PublishWizardCompleted>true</PublishWizardCompleted>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -49,23 +32,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <ManifestCertificateThumbprint>4FF20D128D034D21BD7167AD0CA89A31D49B8E25</ManifestCertificateThumbprint>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ManifestKeyFile>Chess_TemporaryKey.pfx</ManifestKeyFile>
-  </PropertyGroup>
-  <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
-  </PropertyGroup>
-  <PropertyGroup>
-    <SignManifests>true</SignManifests>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -109,19 +79,17 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <None Include="Chess_TemporaryKey.pfx" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -130,123 +98,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chess_rook_white_small.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chess_knight_white_small.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chess_bishop_white_small1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chess_queen_white_small.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chess_king_white_small.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chess_pawn_white_small.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chess_pawn_black_small.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chess_rook_black_small.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chess_knight_black_small.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chess_bishop_black_small.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chess_queen_black_small.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chess_king_black_small.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\wood-grain-effect-clipart.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chess.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Black_Origin.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Rules.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\White_Origin.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\helpIcon.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chessHelp.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Chess_Piece_Move.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Chess_Win_Sound.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Chess_Lose_Sound.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Chess_Draw_Sound.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chess_bishop_black_large.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chess_bishop_white_large.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chess_king_black_large.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chess_king_white_large.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chess_knight_black_large.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chess_knight_white_large.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chess_pawn_black_large.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chess_pawn_white_large.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chess_queen_black_large.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chess_queen_white_large.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chess_rook_black_large.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chess_rook_white_large.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
